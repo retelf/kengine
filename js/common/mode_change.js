@@ -24,6 +24,7 @@
             }
         }
     }
+
 }
 
 var c_mode_change = new class_mode_change(); c_mode_change.initialize();

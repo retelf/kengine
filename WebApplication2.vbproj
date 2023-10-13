@@ -115,11 +115,9 @@
     <Content Include="img\page4_3_icon.png" />
     <Content Include="img\page4_4_icon.png" />
     <Content Include="index.html" />
-    <Content Include="js\common\change_difficulty.js" />
-    <Content Include="js\common\method_split.js" />
-    <Content Include="js\common\set_query_mode_non_simple.js" />
     <Content Include="js\common\exe\exe_get_table.js" />
     <Content Include="js\common\exe\exe_query.js" />
+    <Content Include="js\common\change_difficulty.js" />
     <Content Include="js\common\change_output_amount.js" />
     <Content Include="js\common\change_language.js" />
     <Content Include="js\common\mode_change.js" />

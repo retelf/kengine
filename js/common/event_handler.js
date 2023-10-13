@@ -6,40 +6,18 @@
         $("#btn_new_chat").on("click", function () {
 
             var keywords = $("#txt_query").val();
-
-            if (keywords != "") {
-
-                query_data.desirable_content_length_count = 0;
-                query_data.simple_case = false;
-                $("#table_change_amount").show();
-
-                c_set_query_mode_non_simple.exe();
-                c_exe_query.exe(keywords);
-            } else {
-                alert("질문을 작성해 주시기 바랍니다.!");
-            }
+            query_data.desirable_content_length_count = 0;
+            c_exe_query.exe(keywords);
 
         });
 
         $("#txt_query").on('keyup', function (event) {
-
-            var keywords = $(this).val();
-
-            if (keywords != "") {
             
-                if (event.key == 'Enter' || event.keyCode == 13) {
-
-                    event.preventDefault();
-                    query_data.desirable_content_length_count = 0;
-                    query_data.simple_case = false;
-                    $("#table_change_amount").show();
-
-                    c_set_query_mode_non_simple.exe();
-
-                    c_exe_query.exe(keywords);
-                }
-            } else {
-                alert("질문을 작성해 주시기 바랍니다.");
+            if (event.key == 'Enter' || event.keyCode == 13) {
+                event.preventDefault();
+                var keywords = $(this).val();
+                query_data.desirable_content_length_count = 0;
+                c_exe_query.exe(keywords);
             }
         });
 
@@ -71,23 +49,18 @@
 
         $(".div_language").on("click", function () {
 
-            query_data.simple_case = true;
-            $("#table_change_amount").hide();
             c_change_language.exe($(this));
 
         });
 
         $("#div_difficulty").on("click", function () {
 
-            query_data.simple_case = true;
-            $("#table_change_amount").hide();
             c_change_difficulty.exe($(this));
 
         });
 
         $(".output_amount").on("click", function () {
 
-            query_data.simple_case = false;
             c_change_output_amount.exe($(this));
 
         });

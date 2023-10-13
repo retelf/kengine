@@ -53,14 +53,10 @@ C:\N\Naver MYBOX\Visual Studio 2022\Projects\WebApplication2\WebApplication2\bin
 C:\N\Naver MYBOX\Visual Studio 2022\Projects\WebApplication2\WebApplication2\bin\roslyn\VBCSCompiler.exe.config
 C:\N\Naver MYBOX\Visual Studio 2022\Projects\WebApplication2\WebApplication2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\N\Naver MYBOX\Visual Studio 2022\Projects\WebApplication2\WebApplication2\bin\WcfService1.dll
-C:\N\Naver MYBOX\Visual Studio 2022\Projects\WebApplication2\WebApplication2\bin\KEngune2023.exe
 C:\N\Naver MYBOX\Visual Studio 2022\Projects\WebApplication2\WebApplication2\bin\WcfService1.pdb
 C:\N\Naver MYBOX\Visual Studio 2022\Projects\WebApplication2\WebApplication2\bin\WcfService1.xml
 C:\N\Naver MYBOX\Visual Studio 2022\Projects\WebApplication2\WebApplication2\bin\WcfService1.dll.config
 C:\N\Naver MYBOX\Visual Studio 2022\Projects\WebApplication2\WebApplication2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\N\Naver MYBOX\Visual Studio 2022\Projects\WebApplication2\WebApplication2\bin\KEngune2023.pdb
-C:\N\Naver MYBOX\Visual Studio 2022\Projects\WebApplication2\WebApplication2\bin\KEngune2023.xml
-C:\N\Naver MYBOX\Visual Studio 2022\Projects\WebApplication2\WebApplication2\bin\KEngune2023.exe.config
 C:\N\Naver MYBOX\Visual Studio 2022\Projects\WebApplication2\WebApplication2\obj\Debug\WebApplication2.vbproj.AssemblyReference.cache
 C:\N\Naver MYBOX\Visual Studio 2022\Projects\WebApplication2\WebApplication2\obj\Debug\WebApplication2.Resources.resources
 C:\N\Naver MYBOX\Visual Studio 2022\Projects\WebApplication2\WebApplication2\obj\Debug\WebApplication2.vbproj.GenerateResource.cache
@@ -69,3 +65,7 @@ C:\N\Naver MYBOX\Visual Studio 2022\Projects\WebApplication2\WebApplication2\obj
 C:\N\Naver MYBOX\Visual Studio 2022\Projects\WebApplication2\WebApplication2\obj\Debug\WebApplication2.dll
 C:\N\Naver MYBOX\Visual Studio 2022\Projects\WebApplication2\WebApplication2\obj\Debug\WebApplication2.xml
 C:\N\Naver MYBOX\Visual Studio 2022\Projects\WebApplication2\WebApplication2\obj\Debug\WebApplication2.pdb
+C:\N\Naver MYBOX\Visual Studio 2022\Projects\WebApplication2\WebApplication2\bin\KEngune2023.exe
+C:\N\Naver MYBOX\Visual Studio 2022\Projects\WebApplication2\WebApplication2\bin\KEngune2023.pdb
+C:\N\Naver MYBOX\Visual Studio 2022\Projects\WebApplication2\WebApplication2\bin\KEngune2023.xml
+C:\N\Naver MYBOX\Visual Studio 2022\Projects\WebApplication2\WebApplication2\bin\KEngune2023.exe.config

@@ -18,8 +18,6 @@
     <script src="js/common/change_output_amount.js"></script>
     <script src="js/common/change_difficulty.js"></script>
     <script src="js/common/static.js"></script>
-    <script src="js/common/set_query_mode_non_simple.js"></script>
-    <script src="js/common/method_split.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -71,14 +69,14 @@
                                         <tr>
                                             <td colspan="2" style="text-align:center; ">
                                                 <div id="div_korean" class="div_language" style="width: 158px; height: 52px; background: #4867F8; align-items : center;display : none; margin:auto ;">
-                                                    <div id="div_korean_inner" data-selected="selected" style="width: 70px; text-align: center; margin:auto ; color: white; font-size: 18px; font-family: Pretendard; font-weight: 500; word-wrap: break-word">한국어</div>
+                                                    <div id="div_korean_inner" style="width: 70px; text-align: center; margin:auto ; color: white; font-size: 18px; font-family: Pretendard; font-weight: 500; word-wrap: break-word">한국어</div>
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td colspan="2" style="text-align:center">
                                                 <div id="div_english" class="div_language" style="width: 158px; height: 52px; background: #EEEEEE; align-items : center; display : none; margin:auto ;">
-                                                    <div id="div_english_inner" data-selected="unselected" style="width: 70px; text-align: center; margin:auto; color: #1E1E1E; font-size: 18px; font-family: Pretendard; font-weight: 500; word-wrap: break-word">English</div>
+                                                    <div id="div_english_inner" style="width: 70px; text-align: center; margin:auto; color: #1E1E1E; font-size: 18px; font-family: Pretendard; font-weight: 500; word-wrap: break-word">English</div>
                                                 </div>
                                             </td>
                                         </tr>
@@ -101,7 +99,7 @@
                                         </tr>
                                         <tr>
                                             <td style="text-align:right">
-                                                <div id="div_difficulty" data-professional="yes" style="color: #038B9D; font-size: 14px; font-family: Pretendard; font-weight: 500; text-decoration: underline; word-wrap: break-word">눈높이 모드로 전환하기</div>
+                                                <div id="div_difficulty" style="color: #038B9D; font-size: 14px; font-family: Pretendard; font-weight: 500; text-decoration: underline; word-wrap: break-word">눈높이 모드로 전환하기</div>
                                             </td>
                                         </tr>
                                         <tr>
@@ -147,7 +145,7 @@
                                         </tr>
                                         <tr>
                                             <td id="td_arrow">
-                                                <table id="table_change_amount" style="text-align:center; margin:auto">
+                                                <table style="text-align:center; margin:auto">
                                                     <tr>
                                                         <td style="align-items : center; ">
                                                             <div class="svg-container rotate">

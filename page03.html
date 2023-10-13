@@ -25,12 +25,11 @@
                     <li><a href="./page04.html">국제입찰</a></li>
                 </ul>
             </div>
-            <div class="box"><a href="http://kengine.io/default.aspx" target="_blank">KEngine OS 바탕 위에서 채팅앱 실행하기</a></div>
+            <!-- 23.10.11. 이재황세무사 : 헤더에서 kengine실행 제외-->
         </div>
     </div>
     <div id="header">
         <div class="logo"><a href="./index.html">KENGINE</a></div>
-        <div class="box"><a href="http://kengine.io/default.aspx" target="_blank">KEngine OS 바탕 위에서 채팅앱 실행하기</a></div>
    
         <div class="lnb">	
             <div class="close"></div>
@@ -49,7 +48,7 @@
     
     <div class="main">
     	<div class="container">
-            <section class="page03_1">
+            <section class="pagesection page03_1">
                 <br />
                 <p class="title">시사회</p>
                 <span class="date_btn">일시</span> 2023.10.24 (목) 13:00 ~ 15:00 <br />
@@ -57,7 +56,7 @@
                 <span class="date_btn">기타</span> 식사제공(11:30 ~ 13:00)
             </section>
             
-            <section class="page03_2">
+            <section class="pagesection page03_2">
                 <p class="title">행사내용</p>
                 <table border="0" cellpadding="0" cellspacing="0" class="list-tb">
                     <colgroup>
@@ -114,45 +113,26 @@
     </div>
     <div class="footer">
     	<div class="container">
-            kob8319@naver.com 010-5762-5154<br />
-            Kengine ©2023 All rights reserved
-            <p><a target="_blank" href="https://cafe.naver.com/gotificial">개발자 소개</a></p>
-    	</div>
+            <div class="logo">KENGINE</div>
+            <div class="textarea">
+            <div class="text">
+                주식회사 에이아이 옥션 <br />
+                대표자: 박종배 | 사업자 번호: 254-81-00931
+            </div>
+            <div class="text">
+                kob8319@naver.com 010-5762-5154<br />
+                Copyright Kengine ©2023 All rights reserved
+            </div>
+        </div>
+        <a id='cafeLink'target="_blank" href="https://cafe.naver.com/gotificial"><svg stroke="currentColor" fill="currentColor" stroke-width="0" role="img" viewBox="0 0 24 24" class="sc-gLLuHO bvfOaN" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><title></title><path d="M16.273 12.845 7.376 0H0v24h7.726V11.156L16.624 24H24V0h-7.727v12.845Z"></path></svg> 게시판 바로가기</a>
+    </div>
+    </div>
+    <div id="floatingButton" >
+        <svg id="darkIcon" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+        <svg id="whiteIcon" style="display: none;" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 256 256" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M120,40V16a8,8,0,0,1,16,0V40a8,8,0,0,1-16,0Zm72,88a64,64,0,1,1-64-64A64.07,64.07,0,0,1,192,128Zm-16,0a48,48,0,1,0-48,48A48.05,48.05,0,0,0,176,128ZM58.34,69.66A8,8,0,0,0,69.66,58.34l-16-16A8,8,0,0,0,42.34,53.66Zm0,116.68-16,16a8,8,0,0,0,11.32,11.32l16-16a8,8,0,0,0-11.32-11.32ZM192,72a8,8,0,0,0,5.66-2.34l16-16a8,8,0,0,0-11.32-11.32l-16,16A8,8,0,0,0,192,72Zm5.66,114.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32-11.32ZM48,128a8,8,0,0,0-8-8H16a8,8,0,0,0,0,16H40A8,8,0,0,0,48,128Zm80,80a8,8,0,0,0-8,8v24a8,8,0,0,0,16,0V216A8,8,0,0,0,128,208Zm112-88H216a8,8,0,0,0,0,16h24a8,8,0,0,0,0-16Z"></path></svg>
     </div>
 </div>
-<script>
-
-	$(document).ready(function(){
-		//lnb
-		(function () {
-			var $open = $('.lnb_open');
-			var $close = $('.lnb .close, .body_cover');
-			var $lnb = $('.lnb');
-			var $li_a = $lnb.find('li>a');
-			var $cover = $('.body_cover');
-			var speed=300;
-			$open.on('click', function () {
-				$lnb.addClass('on');
-				$cover.addClass('on');
-			});
-			
-			$close.on('click', function () {
-				$lnb.removeClass('on');
-				$cover.removeClass('on');
-			});
-
-			$li_a.on('click', function (e) {
-				var _parent=$(this).parent();
-				if(_parent.find('.sub').length>0){					
-					e.preventDefault();
-					$(this).parent().toggleClass('on').find('.sub').slideToggle(speed);
-					$(this).parent().siblings().removeClass('on').find('.sub').slideUp(speed);			
-				}
-			});
-		})();
-
-
-	});
-</script>
+<!-- 23.10.12. 이재황세무사 : 자바스크립트 코드 별도 파일에 위치-->
+<script src="./js/scripts.js"></script>
 </body>
 </html>
