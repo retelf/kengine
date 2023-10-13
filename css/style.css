@@ -1,0 +1,157 @@
+@charset "utf-8";
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+/* 초기화 */
+html {overflow-y:scroll}
+body {margin:0;padding:0;font-size:14px;font-family:'Pretendard'}
+html, h1, h2, h3, h4, h5, h6, form, fieldset, img {margin:0;padding:0;border:0}
+div, ul, li {list-style:none; padding:0; margin:0; border:0}
+a {text-decoration:none}
+section {margin:0 0 100px 0}
+#header {display:none}
+.pc {display:block}
+.m {display:none}
+
+.page01_2 .pdf_btn_m {display:none}
+
+.container {max-width:1200px; margin:0 auto}
+.clear {clear:both}
+
+ video {width: 100%; display:block; margin:0 auto; }
+
+.header {background:#010e21; color:#fff; height:75px}
+.header .logo {float:left; font-size:26px; margin:20px 0; width:20%}
+.header .nav {float:left; font-size:15px; padding:20px 0; width:calc(80% - 270px)}
+.header .nav ul {display:flex; justify-content: center;}
+.header .nav ul li {float:left; margin:8px 50px 0 0}
+.header .box {float:right; background:#6354bb; color:#fff; border-radius:30px; height:40px; width:270px; margin:15px 0; line-height:40px; text-align:center}
+.header .box a {display:block}
+.header a {color:#fff}
+
+.main {min-height:300px; font-size:16px; line-height:26px; padding:0}
+.main .title {font-size:24px; font-weight:800; position:relative; padding:0 0 0 30px}
+.main .title::before {
+	position: absolute;
+    content: "";
+    width: 20px;
+    height: 4px;
+    background: #000;
+    top: 0;
+    left:0;
+    top: 50%;
+    transform: translateY(-50%);}
+
+
+.footer {background:#010e21; text-align:left; color:#fff; padding:20px 0; line-height:24px; font-weight:300; font-size:12px}
+.footer .container {position:relative}
+.footer p {position:absolute; top:5px; right:0; border:0 solid #fff; color:#fff; border-radius:30px; height:40px; width:150px; line-height:40px; text-align:right; padding:0; margin:0; font-size:16px}
+.footer a {color:#fff}
+
+
+
+.page01_1 {}
+.page01_2 img {width:100%}
+.page01_2 .pdf_btn {background:#6354bb; color:#fff; border-radius:10px; height:40px; width:130px; margin:-10px 0 0 20px; line-height:40px; text-align:center; font-size:14px; font-weight:normal; padding:10px 20px}
+.page01_2 .pdf_btn a {color:#fff}
+
+.page02_1 .box ul {float:left; background:#ededed;border-radius:30px; width:49%; margin:50px 1% 0 0; height:350px}
+.page02_1 .box ul li {padding:30px 40px; text-align:center; font-size:16px}
+.page02_1 .tit {font-size:18px !important; font-weight:600; padding:0 20px !important}
+
+
+.page03_1 {font-size:18px}
+.page03_1 .date_btn {background:#6354bb; color:#fff; border-radius:10px; height:30px; width:130px; margin:0 20px 0 0; line-height:40px; text-align:center; font-size:14px; font-weight:normal; padding:10px 20px}
+.page03_2 .engin_btn {background:#46bb94; color:#fff; border-radius:30px; height:30px; width:250px; margin:0 auto; line-height:30px; text-align:center; font-size:16px; font-weight:normal; padding:10px 20px; font-weight:600}
+.page03_2 .engin_btn a {display:block; color:#fff}
+
+.page04_1 {font-size:18px}
+.page04_1 .date_btn {background:#6354bb; color:#fff; border-radius:10px; height:30px; width:130px; margin:0 20px 0 0; line-height:40px; text-align:center; font-size:14px; font-weight:normal; padding:10px 20px}
+.page04_1 .box ul {float:left; background:#ededed;border-radius:30px; width:24%; margin:50px 1% 0 0; height:300px}
+.page04_1 .box ul:last-child {margin:50px 0 0 0; width:25%}
+.page04_1 .box ul li {padding:30px 20px; text-align:center; font-size:16px}
+.page04_1 .tit {font-size:18px !important; font-weight:600; padding:0 20px !important}
+.page04_2 span {display:block; background:#fff; border:2px solid #6354bb; color:#fff; border-radius:10px; height:25px; width:120px; margin:0 0 10px 0; line-height:25px; text-align:center; font-size:16px; font-weight:normal; padding:10px 0; font-weight:600; color:#6354bb}
+.page04_3 .btn_two {display:flex; justify-content: center; margin:50px 0 0 0}
+.page04_3 .btn_two li {float:left}
+.page04_3 .btn_two .btn {background:#46bb94; color:#fff; border-radius:30px; height:30px; width:250px; margin:0 20px; line-height:30px; text-align:center; font-size:16px; font-weight:normal; padding:10px 20px; font-weight:600}
+
+.list-tb {border:1px solid #e6e6e6;border-bottom:1px solid #828282; border-top:2px solid #828282; border-left:0; width:100%; margin:0 0 30px 0}
+.list-tb img {margin:0 10px 0 0; width:60px}
+
+.list-tb th, .list-tb table td {padding:15px 0;border-top:1px solid #e6e6e6;border-left:1px solid #e6e6e6;text-align: center;line-height: 1.4;}
+.list-tb thead th {background:#f2f2f2;font-weight:500;border-left:1px solid #ccc}
+.list-tb thead th:first-child{border-left:1px solid #e6e6e6}
+.list-tb thead tr th {font-weight:600 !important}
+.list-tb tbody td{border-bottom:1px solid #e6e6e6; text-align:center; padding:15px 0; border-left:1px solid #ccc}
+.list-tb .title {text-align:left; padding:20px 0 20px 20px}
+
+@media (max-width:1200px){
+.container {max-width:100%; padding:0 10px}	
+.footer p {position:absolute; top:5px; right:10px; border:0 solid #fff; color:#fff; border-radius:30px; height:40px; width:150px; line-height:40px; text-align:right; padding:0; margin:0; font-size:16px}
+
+.page02_1 .box ul {height:400px}
+}
+
+@media (max-width:768px){
+.pc {display:none}
+.m {display:block}		
+section {margin:0 0 50px 0}	
+
+.list-tb th, .list-tb table td {padding:10px 10px;border-top:1px solid #e6e6e6;border-left:1px solid #e6e6e6;text-align: center;line-height: 1.4;}
+
+.header {display:none}	
+.container {max-width:100%; padding:0 10px}	
+.footer p {position:absolute; top:5px; right:10px; border:0 solid #fff; color:#fff; border-radius:30px; height:30px; width:120px; line-height:30px; text-align:right; padding:0; margin:0; font-size:14px}
+
+.page01_2 .pdf_btn {display:none}
+.page01_2 .pdf_btn_m { display:block; background:#6354bb; color:#fff; border-radius:10px; height:30px; width:100%; margin:-10px auto 30px auto; line-height:30px; text-align:center; font-size:12px; font-weight:normal; padding:10px 0}
+.page01_2 .pdf_btn_m a {color:#fff}
+
+.page02_1 .box ul {height:400px}
+.page02_1 .box ul {float:none; background:#ededed;border-radius:30px; width:100%; margin:0; height:auto; margin:0 0 20px 0}
+.page02_1 .box ul li {padding:30px 40px; text-align:center; font-size:16px}
+.page02_1 .tit {font-size:18px !important; font-weight:600; padding:0 20px !important}
+
+
+.page03_1 {font-size:16px}
+.page03_1 .date_btn {background:#6354bb; color:#fff; border-radius:10px; height:30px; width:100px; margin:0 5px 0 0; line-height:40px; text-align:center; font-size:14px; font-weight:normal; padding:10px 10px}
+
+.page04_1 {font-size:16px}
+.page04_1 .date_btn {background:#6354bb; color:#fff; border-radius:10px; height:30px; width:100px; margin:0 5px 0 0; line-height:40px; text-align:center; font-size:14px; font-weight:normal; padding:10px 10px}
+.page04_1 .box {margin:50px 0 0 0}
+.page04_1 .box ul {float:left; background:#ededed;border-radius:30px; width:49%; margin:1% 1% 0 0; height:300px}
+.page04_1 .box ul:last-child {margin:1% 1% 0 0; width:49%}
+.page04_1 .box ul li {padding:30px 20px; text-align:center; font-size:16px}
+.page04_1 .tit {font-size:18px !important; font-weight:600; padding:0 20px !important}
+.page04_3 .btn_two {display:flex; justify-content: center; margin:50px 0 0 0}
+.page04_3 .btn_two li {float:none}
+.page04_3 .btn_two .btn {background:#46bb94; color:#fff; border-radius:30px; height:30px; width:250px; margin:0 0 20px 0; line-height:30px; text-align:center; font-size:16px; font-weight:normal; padding:10px 20px; font-weight:600}
+
+
+#header {display:block}
+#header {background:#010e21; color:#fff; height:50px}
+#header .logo {float:left; font-size:26px; margin:10px 0 0 5px; width:20%}
+#header .logo a {color:#fff}
+#header .box {margin:0 50px 0 0}
+#header .box a {float:right; background:#6354bb; color:#fff; border-radius:30px; height:30px; width:270px; margin:10px 0; line-height:30px; text-align:center}
+
+.lnb{position:fixed;right:-90%;top:0;z-index:90;width:90%;height:100%;background:#010e21;transition:.3s;overflow:auto}
+.lnb.on {right:0;transition:.3s}
+
+.lnb .close{text-align:right; height:50px}
+.lnb .close:after {display:inline-block;content: "\00d7"; font-size:40px; line-height:50px; margin:0 5px 0 0}
+
+.lnb li{border-top:1px solid #333}
+.lnb li > a{display:block;height:45px;line-height:45px;font-size:14px;color:#fff;padding-left:20px}
+.lnb li.on > a{color:red}
+.lnb li.on .sub{}
+.lnb .sub{display:none;background:#333}
+.lnb .sub{border-top:1px solid #444}
+.lnb .sub a{display:block;padding:8px 0;line-height:18px;font-size:12px;color:#ddd;padding-left:30px}
+.lnb .sub dd.on a{color:red}
+
+.lnb_open {position:absolute;top:0;right:0}
+.lnb_open:after {display:inline-block;content: "\2630"; font-size:30px; margin:5px 5px 5px 0; line-height:40px}
+
+.body_cover.on{position:fixed;left:0;top:0;width:100%;height:100%;background:#000;opacity:0.6;z-index:80}
+}
