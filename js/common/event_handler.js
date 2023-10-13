@@ -16,7 +16,7 @@
                 c_set_query_mode_non_simple.exe();
                 c_exe_query.exe(keywords);
             } else {
-                alert("질문을 작성해 주시기 바랍니다.");
+                alert("질문을 작성해 주시기 바랍니다.!");
             }
 
         });
