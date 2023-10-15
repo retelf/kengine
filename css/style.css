@@ -3,8 +3,10 @@
 
 /* 초기화 */
 html {overflow-y:scroll}
-/* 23.10.11. 이재황세무사 : 기본 바디 백그라운드 컬러 변경*/
-body {background-color:rgb(51, 51, 51);margin:0;padding:0;font-size:14px;font-family:'Pretendard'}
+/* 23.10.11. 이재황세무사 : 기본 바디 백그라운드 컬러 변경
+   23.10.15. 이재황세무사 : 디자이너 요청으로 기본 바디 백그라운드 rgb(51, 51, 51)-> BLACK으로 변경
+*/
+body {background-color:black;margin:0;padding:0;font-size:14px;font-family:'Pretendard'}
 html, h1, h2, h3, h4, h5, h6, form, fieldset, img {margin:0;padding:0;border:0}
 div, ul, li {list-style:none; padding:0; margin:0; border:0}
 a {text-decoration:none}
@@ -19,9 +21,15 @@ section {margin:0 0 100px 0}
 .container {color:rgb(255, 255, 255); max-width:1200px; margin:0 auto}
 .clear {clear:both}
 
-video { box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px 10px; width: 100%; display:block; margin:0 auto 2vh auto; }
+/* 23.10.15. 이재황세무사: 스크롤 라인 추가로인하여 z인덱스 추가 */
+video {z-index: 300; position: relative;width: 100%; display:block; margin:0 auto 2vh auto; }
 
-.header {box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px; background:rgb(18,18,18); color:#fff; height:75px}
+/* 23.10.15. 이재황세무사 : 디자이너 요청으로 BODY색 BLACK으로 변경하였으므로, 헤더 및 푸터도 이에맞게 변경 18,18,18->(51,51,51)
+   + 좌측 라인을 그렸기에, 포지션 릴레이티브와 z인덱스 수정
+*/
+.header {    position: relative;
+    z-index: 9999 !important;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px; background:rgb(51, 51, 51); color:#fff; height:75px}
 .header .logo {float:left; font-size:26px; margin:20px 0; width:20%}
 .header .nav {float:left; font-size:15px; padding:20px 0; width:calc(80% - 270px)}
 .header .nav ul {display:flex; justify-content: center;}
@@ -39,10 +47,10 @@ video { box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px 10px; width: 100%; display:b
 
 
 .main {min-height:300px; font-size:16px; line-height:26px; padding:0}
-.main .title {font-size:24px; font-weight:800; position:relative; padding:0 0 0 30px}
+.main .title {font-size:24px; font-weight:800; position:relative; padding:0 0 0 0}
 .main .title::before {
 	position: absolute;
-    content: "";
+    content: ;
     width: 20px;
     height: 4px;
     /*23.10.11. 이재황세무사 : 배경 변경으로인해 before백그라운드 색 변경*/
@@ -54,8 +62,11 @@ video { box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px 10px; width: 100%; display:b
     transition: all 0.5s; 
 }
 
-
-.footer {    background-color: rgb(18, 18, 18);
+/* 23.10.15. 이재황세무사 : 디자이너 요청으로 BODY색 BLACK으로 변경하였으므로, 헤더 및 푸터도 이에맞게 변경 18,18,18->(51,51,51)*/
+.footer {    
+    position: relative;
+    z-index: 9999 !important;
+    background-color: rgb(51, 51, 51);
     color: rgb(255, 255, 255);
     padding: 10px 0px;
     text-align: center;
@@ -107,6 +118,7 @@ video { box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px 10px; width: 100%; display:b
 }
 
 #floatingButton {
+    z-index: 99999;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -139,10 +151,11 @@ body {transition: background-color 0.5s, color 0.5s;}
 .header {transition: background-color 0.5s, color 0.5s;}
 .box a{transition: background-color 0.5s, color 0.5s;}
 
-body.whitemode {background-color: rgb(219, 217, 217); transition: background-color 0.5s, color 0.5s;}
+/* 23.0.15. 이재황세무사 : 화이트모드 배경색 흰색 변경 (디자이너 피드백 반영)*/
+body.whitemode {background-color: white; transition: background-color 0.5s, color 0.5s;}
 .header.whitemode {background-color: rgb(245, 245, 245) !important; transition: background-color 0.5s; }
 .header.whitemode a {color:rgb(0,0,0); transition: color 0.5s, background-color 0.5s, transform 0.5s;}
-.page02_1 .box.whitemode a {color:rgb(219, 217, 217); transition: color 0.5s;}
+.page02_1 .box.whitemode a {color:rgbwhite; transition: color 0.5s;}
 .page02_1 .box.whitemode ul{transition: all 0.5s;    background-color: #f7faff !important}
 .page04_1 .box.whitemode li {color:black; transition: color 0.5s;}
 .page04_1 .box.whitemode ul{transition: all 0.5s;    background-color: #f7faff !important}
@@ -163,7 +176,7 @@ body.whitemode {background-color: rgb(219, 217, 217); transition: background-col
 
 .main .title.whitemode::before { background: rgb(0, 0, 0); transition: all 0.5s; }
 
-.highlight.whitemode{ background-color: rgb(93 118 143); color: #ffffff; transition: all 0.5s;}
+/* 23.10.15. 이재황세무사 : 디자이너 요청으로 하이라이트 백그라운드 제거, 색 제거, 강조만 표시*/
 
 #cafeLink { transition: all 0.5s;}
 
@@ -204,10 +217,16 @@ body.whitemode {background-color: rgb(219, 217, 217); transition: background-col
 .page01_2 .pdf_btn:hover a {transition: all 0.5s; color:rgb(143, 136, 215);}
 
 
-/* 23.10.12. 이재황세무사: 박스 쉐도우 및 트랜시션 추가*/
-.page02_1 .box ul {transition: all 0.5s; box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px; float:left; background:#2b2020;border-radius:30px; width:49%; margin:50px 1% 0 0; height: 440px;}
-.page02_1 .box ul li {padding:30px 40px; text-align:center; font-size:16px}
-.page02_1 .tit {font-size:18px !important; font-weight:600; padding:0 20px !important}
+/* 23.10.12. 이재황세무사: 박스 쉐도우 및 트랜시션 추가
+   23.10.15. 이재황세무사: 박스 색을 '신비로운 색'으로 디자이너가 요청하여 그에 맞게 변경 기존background:#2b2020 ->#191970(미드나잇 블루) 변경
+   + tit 텍스트 사이즈 키움(제목이기에 조금 더 큰게 좋겠다 판단) 
+   + 내부 텍스트 색 조정
+*/
+.page02_1 .box ul {transition: all 0.5s; box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px; float:left; background:#191970;border-radius:30px; width:49%; margin:25px 1% 0 0; height: 440px;}
+.page02_1 .box ul li {color: rgba(255,255,255,0.61);padding:30px 40px; text-align:center; font-size:16px}
+.page02_1 .tit {color: white !important;font-size:28px !important; font-weight:600; padding:0 20px !important}
+
+.page02_1 .box ul li:last-child {padding: 10px 40px;}
 
 
 .page03_1 {font-size:18px}
@@ -220,8 +239,9 @@ body.whitemode {background-color: rgb(219, 217, 217); transition: background-col
 
 .page04_1 {font-size:18px}
 .page04_1 .date_btn {background:#6354bb; color:#fff; border-radius:10px; height:30px; width:130px; margin:0 20px 0 0; line-height:40px; text-align:center; font-size:14px; font-weight:normal; padding:10px 20px}
-/* 23.10.12. 이재황 세무사 : page04_1 box 및 span css 조정*/
-.page04_1 .box ul {box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px;transition: all 0.5s;float:left; background:#7d7d7d;border-radius:30px; width:24%; margin:50px 1% 0 0; height: 350px; color: white;}
+/* 23.10.12. 이재황 세무사 : page04_1 box 및 span css 조정
+   23.10.15. 이재황 세무사 : page04 내 이미지 박스 색 디자이너 의견으로 수정 (#ffffff1f)*/
+.page04_1 .box ul {box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px;transition: all 0.5s;float:left; background:#ffffff1f;border-radius:30px; width:24%; margin:50px 1% 0 0; height: 350px; color: white;}
 .page04_1 .box ul:last-child {margin:50px 0 0 0; width:25%}
 .page04_1 .box ul li {transition: all 0.5s;padding:30px 20px; text-align:center; font-size:16px}
 .page04_1 .tit {font-size:18px !important; font-weight:600; padding:0 20px !important}
@@ -370,13 +390,143 @@ section {margin:0 0 50px 0}
 }
 
 
-/* 23.10.12. 이재황세무사: 특정 단어 강조를 위한 css 추가*/
+/* 23.10.12. 이재황세무사: 특정 단어 강조를 위한 css 추가
+   23.10.15. 이재황세무사: 디자이너 요청으로 인하여 하이라이트 백그라운드 제거, 색 제거, 굶게만 표시*/
 .highlight {
-    background-color: rgb(0 0 0 / 40%);
-    color: #f3e1bb;
-    transition: all 0.5s;
+    font-weight: bold;
+    text-decoration: underline;
 }
 
 .no-transition * {
     transition: none !important;
 }
+
+/* 23.10.15. 이재황 세무사 : 특정 요소 마우스오버시 css효과*/
+  
+  #gradientEffect {
+    border-radius: 15px;
+    border: 0.5px solid #ffffff14;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, #183141, transparent);
+    transition: opacity 0.1s;
+    pointer-events: none;
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 30px 0;
+  }
+
+  #gradientEffect li img {
+    margin-left: 35px !important; 
+  }
+
+  #gradientEffect div li{
+    text-align: left;
+    padding-left: 80px !important;
+    width: 80%;
+  }
+  
+  /* 23.10.15. 스크롤바 추가 */
+  .scroll-bar {
+    margin-left: 55px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient( 
+        rgba(15, 32, 43, 0.1), /* 흐릿한 초록색 시작 */ 
+        rgba(15, 32, 43, 1) 50%, /* 진한 초록색 10% 지점에서 시작 */ 
+        rgba(15, 32, 43, 1) 51%, /* 진한 초록색 90% 지점에서 끝 */ 
+        rgba(15, 32, 43, 0.1) /* 흐릿한 초록색 끝 */ );
+    border-radius: 0 5px 5px 0;
+}
+
+.mainTitle {
+    display: inline-block; /* 블록 요소 특성을 갖도록 함 */
+    padding: 0px 10px; /* 안쪽 여백을 추가하여 텍스트와 테두리 사이에 간격을 만듦 */
+    border: 2px solid rgb(31 127 181);
+    border-radius: 50px; /* 동그란 형태를 만들기 위한 border-radius 값 */
+    font-size: 14px; /* 글자 크기 */
+    text-align: center; /* 글자를 중앙에 배치 */
+    font-weight: bold;
+    color: rgb(37 127 181);
+    pointer-events: none;
+
+}
+
+.page02_1 .title {
+    color: rgb(37 127 181);
+    font-weight: bold;
+    font-size: 45px; 
+    margin: -5px 0px 45px 0px;
+    pointer-events: none;
+}
+
+
+
+/* 23.10.15. 이재황세무사 : INTRO페이지 자동 텍스트 입력 관련 CSS*/
+
+.text_container{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    margin-left: 80px;
+}
+.text_container span:nth-child(odd) {
+    /*background-color: rgba(99, 84, 187, 0.1); */
+}
+
+.text_container div{
+    padding: 400px 0px;
+
+}
+
+.text_container span{
+    font-size: 40px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 2s;  /* smooth fade-in effect */
+}
+
+.text_container span p{
+color: gray;
+font-size: 25px;
+font-weight: lighter;
+opacity: 0;
+transition: opacity 1s;  /* smooth fade-in effect */
+line-height: 40px;
+}
+
+.text_container :nth-child(5) div{
+}
+
+.text_container video {
+    width: 60%;
+    position: absolute;
+    left: 0px;
+    margin-left: 81px;
+}
+
+#typeText {
+    white-space: pre-wrap; /* 공백과 줄 바꿈을 보존 */
+}
+
+
+@keyframes blink {
+    0% {opacity: 1;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+.cursor {
+    display: inline-block;
+    width: 1px;
+    height: 1em;
+    background-color: black;
+    vertical-align: text-bottom;
+    animation: blink 1s infinite;
+}
+
