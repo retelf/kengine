@@ -6,7 +6,7 @@ html {overflow-y:scroll}
 /* 23.10.11. 이재황세무사 : 기본 바디 백그라운드 컬러 변경
    23.10.15. 이재황세무사 : 디자이너 요청으로 기본 바디 백그라운드 rgb(51, 51, 51)-> BLACK으로 변경
 */
-body {background-color:black;margin:0;padding:0;font-size:14px;font-family:'Pretendard'}
+body {    overflow: hidden;    position: relative;background-color:black;margin:0;padding:0;font-size:14px;font-family:'Pretendard'}
 html, h1, h2, h3, h4, h5, h6, form, fieldset, img {margin:0;padding:0;border:0}
 div, ul, li {list-style:none; padding:0; margin:0; border:0}
 a {text-decoration:none}
@@ -28,9 +28,8 @@ video {z-index: 300; position: relative;width: 100%; display:block; margin:0 aut
    + 좌측 라인을 그렸기에, 포지션 릴레이티브와 z인덱스 수정
    23.10.16. 이재황 : 배경색 제거(이미지를 배경으로 사용)
 */
-.header {    position: relative;
-    z-index: 9999 !important;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px; color:#fff; height:75px}
+.header {position: relative; z-index: 9999 !important;
+    background-color: rgba(0,0,0,0.2);box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px; color:#fff; height:75px}
 .header .logo {float:left; font-size:26px; margin:20px 0; width:20%}
 .header .nav {float:left; font-size:15px; padding:20px 0; width:calc(80% - 270px)}
 .header .nav ul {display:flex; justify-content: center;}
@@ -47,8 +46,7 @@ video {z-index: 300; position: relative;width: 100%; display:block; margin:0 aut
 .header a {color:#fff}
 
 
-.main {    overflow: hidden;
-    position: relative;min-height:300px; font-size:16px; line-height:26px; padding:0}
+.main { min-height:300px; font-size:16px; line-height:26px; padding:0}
 .main .title {font-size:24px; font-weight:800; position:relative; padding:0 0 0 0}
 .main .title::before {
 	position: absolute;
@@ -430,21 +428,59 @@ section {margin:0 0 50px 0}
     width: 80%;
   }
   
-  /* 23.10.15. 스크롤바 추가 */
+  /* 23.10.15. 스크롤바 추가 
+    23.10.16. 스크롤바 하이라이트 부분 추가 (반응형)
+  */
   .scroll-bar {
+    z-index: 5;
     margin-left: 55px;
     position: fixed;
     top: 0;
     left: 0;
     width: 3px;
     height: 100%;
-    background: linear-gradient( 
-        rgba(15, 32, 43, 0.1), /* 흐릿한 초록색 시작 */ 
-        rgba(15, 32, 43, 1) 50%, /* 진한 초록색 10% 지점에서 시작 */ 
-        rgba(15, 32, 43, 1) 51%, /* 진한 초록색 90% 지점에서 끝 */ 
-        rgba(15, 32, 43, 0.1) /* 흐릿한 초록색 끝 */ );
     border-radius: 0 5px 5px 0;
+    transition: opacity 0.5s;
+
 }
+
+.scroll-bar-bg, .scroll-bar-highlight {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.5s;
+}
+
+.scroll-bar-bg {
+    background: linear-gradient( 
+        rgba(15, 32, 43, 0.1),
+        rgba(15, 32, 43, 1) 47%, 
+        rgba(15, 32, 43, 1) 53%, 
+        rgba(15, 32, 43, 0.1));
+    opacity: 1;
+    transition: opacity 0.5s;
+
+}
+
+.scroll-bar-highlight {
+    background: linear-gradient( 
+        rgba(0, 0, 0, 0), 
+        rgba(0, 0, 0, 0) 47%, 
+        rgb(14 255 35) 48%, 
+        rgb(14 255 35) 52%, 
+        rgba(0, 0, 0, 0) 53%);
+    opacity: 0;
+    transition: opacity 0.5s;
+
+}
+
+.scroll-bar.scrolled .scroll-bar-highlight {
+    opacity: 0.7;  
+}
+
+
 
 .mainTitle {
     display: inline-block; /* 블록 요소 특성을 갖도록 함 */
@@ -476,10 +512,10 @@ section {margin:0 0 50px 0}
     color: white;
     display: flex;
     flex-direction: column;
-    margin-left: 80px;
+    margin-left: 10vw;
+    
 }
 .text_container span:nth-child(odd) {
-    /*background-color: rgba(99, 84, 187, 0.1); */
 }
 
 .text_container div{
@@ -495,9 +531,13 @@ section {margin:0 0 50px 0}
     font-weight: bold;
     opacity: 0;
     transition: opacity 2s;  /* smooth fade-in effect */
+    pointer-events: none;
+
 }
 
 .text_container span p{
+    pointer-events: none;
+
 color: gray;
 font-size: 25px;
 font-weight: lighter;
@@ -538,15 +578,25 @@ line-height: 40px;
 
 /* 23.10.16. 이재황세무사 : 인트로 이미지 추가*/
 .introIMG {
-    position: absolute;
-    z-index: 1;
-    /*max-width: 100%;   /* 이미지의 최대 너비를 제한합니다. */
-    height: auto;     /* 원본 비율을 유지하면서 너비에 맞게 높이를 조절합니다. */
-    display: block;   /* 이미지 주변의 공간을 제거합니다. */
-    margin: 0 auto;   /* 이미지를 수평 중앙에 배치합니다. */
-    opacity: 0.5;
-    top: 0px;
-    box-shadow: 15px white; /* 흐릿한 효과 크기와 색상을 조절합니다. */
-
+    display: block;
+    height: auto;
 }
 
+.imageContainer {
+    position: absolute;
+    top:0px;
+    display: inline-block;
+}
+
+.imageContainer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0), transparent),
+     linear-gradient(to top, rgba(0, 0, 0), transparent);
+
+    pointer-events: none;
+}

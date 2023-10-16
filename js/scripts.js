@@ -159,4 +159,65 @@ document.addEventListener('DOMContentLoaded', function () {
     observer.observe(videoElement);
 });
 
+var scrollTimeout;  // 스크롤 후 일정 시간을 계산하기 위한 변수
+
+$(document).on('scroll', function() {
+    var currentScrollTop = $(this).scrollTop();
+
+    if (currentScrollTop !== lastScrollTop) {
+        // 스크롤 값이 변경될 때
+        $('.scroll-bar').addClass('scrolled');
+
+        // 이전에 설정된 타이머가 있다면 초기화
+        clearTimeout(scrollTimeout);
+
+        // 일정 시간 후 클래스 제거
+        scrollTimeout = setTimeout(function() {
+            $('.scroll-bar').removeClass('scrolled');
+        }, 300);  // 1500ms(1.5초) 후에 .scrolled 클래스 제거
+    }
+
+    // 현재 스크롤 위치 기록
+    lastScrollTop = currentScrollTop;
+});
+
+var lastScrollTop = 0;  // 초기 스크롤 위치
+
+
+
+var currentIndex = -1;  // 초기 인덱스 설정
+var typeTextElements = $('.scroll-to');  // 모든 typeText 요소를 선택
+var isAnimating = false;  // 애니메이션 중인지 확인하는 플래그
+
+$(document).on('mousewheel DOMMouseScroll', function(event) {
+    if (isAnimating) return;  // 애니메이션이 진행 중이면 추가 애니메이션 방지
+
+    if (event.originalEvent.wheelDelta < 0 || event.originalEvent.detail > 0) {
+        // 다음 typeText 요소로 이동
+        currentIndex++;
+        
+        // 모든 typeText 요소를 다 보여줬다면 더 이상 스크롤하지 않음
+        if (currentIndex >= typeTextElements.length) {
+            currentIndex = typeTextElements.length - 1;  // 인덱스를 마지막 요소로 설정
+            return;  // 함수 종료
+        }
+        
+        // 중앙에 위치하도록 스크롤 위치 조정
+        var targetTop = $(typeTextElements[currentIndex]).offset().top - ($(window).height() / 2) + ($(typeTextElements[currentIndex]).height() / 2);
+
+        isAnimating = true;  // 애니메이션 시작 전에 플래그를 설정
+
+        $('html, body').stop().animate({
+            scrollTop: targetTop
+            
+        }, 1000, function() {
+             // 애니메이션이 완료된 후 플래그 재설정
+             isAnimating = false;
+        });
+        
+        event.preventDefault();
+    }
+});
+
+
 });
