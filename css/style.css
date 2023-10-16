@@ -255,19 +255,19 @@ body.whitemode {background-color: white; transition: background-color 0.5s, colo
 .page04_3 .btn_two .btn:hover {transition: all 0.5s; background:rgba(0,0,0,0); color:#46bb94;}
 
 
-
-.list-tb {box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px; border:1px solid #e6e6e6; width:100%; margin:0 0 30px 0}
+/* 23.10.15 이재황세무사 : 테이블 색 bc8cff  등 수정 */
+.list-tb {box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px; border:1px solid #bc8cff; width:100%; margin:0 0 30px 0}
 .list-tb img {margin:0 10px 0 0; width:60px}
 
-.list-tb th, .list-tb table td {padding:15px 0;border-top:1px solid #e6e6e6;border-left:1px solid #e6e6e6;text-align: center;line-height: 1.4;}
+.list-tb th, .list-tb table td {padding:15px 0;border-top:1px solid #bc8cff ;border-left:1px solid #bc8cff ;text-align: center;line-height: 1.4;}
 
 /* 23.10.12. 이재황 세무사 : list-tb thead tr 백그라운드 기본 색 변경*/
 .list-tb thead {border-bottom: solid black 1px;}
-.list-tb thead th {font-weight:500;border-left:1px solid #ccc}
+.list-tb thead th {font-weight:500;border-left:1px solid #bc8cff }
 
-.list-tb thead th:first-child{border-left:1px solid #e6e6e6}
+.list-tb thead th:first-child{border-left:1px solid #bc8cff }
 .list-tb thead tr th {font-weight:600 !important}
-.list-tb tbody td{border-bottom:1px solid #e6e6e6; text-align:center; padding:15px 0; border-left:1px solid #ccc}
+.list-tb tbody td{border-bottom:1px solid #bc8cff ; text-align:center; padding:15px 0; border-left:1px solid #bc8cff }
 .list-tb .title {text-align:left; padding:20px 0 20px 20px}
 
 /* 테이블 본문 스타일 */
@@ -333,7 +333,7 @@ section {margin:0 0 50px 0}
 
 
 #header {display:block}
-#header {background:#010e21; color:#fff; height:50px}
+#header {background:rgb(51, 51, 51); color:#fff; height:50px}
 #header .logo {float:left; font-size:26px; margin:10px 0 0 5px; width:20%}
 #header .logo a {color:#fff}
 #header .box {margin:0 50px 0 0}
@@ -485,6 +485,7 @@ section {margin:0 0 50px 0}
 }
 
 .text_container span{
+    line-height: 40px;
     font-size: 40px;
     font-weight: bold;
     opacity: 0;
