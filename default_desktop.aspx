@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title></title>
     <link href="css/general.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="./css/engine.css" />
     <script src='js/GLOBAL/general/detect_browser.js' type='text/javascript'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <%--<script src='js/GLOBAL/general/jquery.js' type='text/javascript'></script>--%>
