@@ -35,12 +35,12 @@ video {z-index: 300; position: relative;width: 100%; display:block; margin:0 aut
 .header .nav ul {display:flex; justify-content: center;}
 .header .nav ul li {float:left; margin:8px 50px 0 0}
 /* 23.10.11. 이재황 세무사 : box를 header클래스 에서 제외함으로 box_container으로 수정 및 관련 css 추가 */
-.box_container {display: flex; justify-content: center; align-items: center; padding: 10px;}
-.box_container .box {text-decoration: none; font-weight: bold; font-size: 18px; color: rgb(255, 255, 255); cursor: pointer; background-color: rgb(99, 84, 187); border: 3px solid rgb(99, 84, 187); border-radius: 8px; padding: 10px 20px; margin: 25px 0px; transition: background-color 0.5s ease 0s, color 0.2s ease 0s;}
+.box_container {padding: 0px !important; display: flex; justify-content: left; align-items: center; }
+.box_container .box {transition: all 0.5s;text-decoration: none; font-weight: bold; font-size: 18px; color: rgb(255, 255, 255); cursor: pointer; background-color: rgb(99, 84, 187); border: 3px solid rgb(99, 84, 187); border-radius: 8px; padding: 10px 20px; margin: 25px 0px; transition: background-color 0.5s ease 0s, color 0.2s ease 0s;}
 .box_container .box a {display:block}
-.box_container .box:hover {background-color: rgb(51, 51, 51); border-color:rgb(143, 136, 215);}
+.box_container .box:hover {transition: all 0.5s; border-color:rgb(76, 71, 145);}
 .box_container a {color:#fff}
-.box_container .box:hover a {color:rgb(143, 136, 215);}
+.box_container .box:hover a {color:rgb(76, 71, 145);}
 
 
 .header a {color:#fff}
@@ -50,7 +50,6 @@ video {z-index: 300; position: relative;width: 100%; display:block; margin:0 aut
 .main .title {font-size:24px; font-weight:800; position:relative; padding:0 0 0 0}
 .main .title::before {
 	position: absolute;
-    content: ;
     width: 20px;
     height: 4px;
     /*23.10.11. 이재황세무사 : 배경 변경으로인해 before백그라운드 색 변경*/
@@ -202,9 +201,21 @@ body.whitemode {background-color: white; transition: background-color 0.5s, colo
     margin-right: 0;  /* 마지막 li 아이템의 오른쪽 마진을 제거합니다. */
 }
 
-.box_container .box {box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px; text-decoration: none; font-weight: bold; font-size: 18px; color: rgb(255, 255, 255); cursor: pointer; background-color: rgb(99, 84, 187); border: 3px solid rgb(99, 84, 187); border-radius: 8px; padding: 10px 20px; margin: 25px 0px; transition: background-color 0.5s ease 0s, color 0.2s ease 0s;}
+.box_container .box {    z-index: 9999;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    background-color: rgb(255 255 255 / 0%);
+    border: 1px solid rgb(255 255 255);
+    border-radius: 0px;
+    padding: 10px 20px;
+    margin: 25px 0px;
+    transition: background-color 0.5s ease 0s, color 0.2s ease 0s;}
 .box_container .box a {display:block}
-.box_container .box:hover {background-color: rgb(51, 51, 51); border-color:rgb(143, 136, 215);}
 .box_container a {color:#fff}
 .box_container .box:hover a {color:rgb(143, 136, 215);}
 
@@ -229,10 +240,12 @@ body.whitemode {background-color: white; transition: background-color 0.5s, colo
 .page02_1 .box ul li:last-child {padding: 10px 40px;}
 
 
-.page03_1 {font-size:18px}
+.page03_1 {    pointer-events: none;
+    font-size:18px}
 .page03_1 .date_btn {background:#6354bb; color:#fff; border-radius:10px; height:30px; width:130px; margin:0 20px 0 0; line-height:40px; text-align:center; font-size:14px; font-weight:normal; padding:10px 20px}
 .page03_2 .engin_btn {box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px; cursor: pointer;transition: all 0.5s;border: 1px #46bb94 solid;background:#46bb94; color:#fff; border-radius:30px; height:30px; width:250px; margin:0 auto; line-height:30px; text-align:center; font-size:16px; font-weight:normal; padding:10px 20px; font-weight:600}
-.page03_2 .engin_btn a {transition: all 0.5s;display:block; color:#fff}
+.page03_2 .engin_btn a {    pointer-events: none;
+    transition: all 0.5s;display:block; color:#fff}
 .page03_2 .engin_btn:hover {transition: all 0.5s; background-color: rgba(0,0,0,0);}
 .page03_2 .engin_btn:hover a {transition: all 0.5s; color: #46bb94;}
 
@@ -293,6 +306,21 @@ body.whitemode {background-color: white; transition: background-color 0.5s, colo
 }
 
 @media (max-width:768px){
+
+.box.scroll-to {
+    position: relative !important;
+    flex-direction: column;
+    top: 221px;
+}
+
+.imageContainer:first-child {
+    left: -665px !important;
+}
+
+.imageContainer:last-child{
+    left: -1280px !important;
+}
+
 .pc {display:none}
 .m {display:block}		
 section {margin:0 0 50px 0}	
@@ -332,8 +360,9 @@ section {margin:0 0 50px 0}
 .page04_3 .btn_two .btn {background:#46bb94; color:#fff; border-radius:30px; height:30px; width:250px; margin:0 0 20px 0; line-height:30px; text-align:center; font-size:16px; font-weight:normal; padding:10px 20px; font-weight:600}
 
 
-#header {display:block}
-#header {background:rgb(51, 51, 51); color:#fff; height:50px}
+#header {    z-index: 900009;
+    position: relative;display:block}
+#header { color:#fff; height:50px}
 #header .logo {float:left; font-size:26px; margin:10px 0 0 5px; width:20%}
 #header .logo a {color:#fff}
 #header .box {margin:0 50px 0 0}
@@ -467,10 +496,10 @@ section {margin:0 0 50px 0}
 .scroll-bar-highlight {
     background: linear-gradient( 
         rgba(0, 0, 0, 0), 
-        rgba(0, 0, 0, 0) 47%, 
-        rgb(14 255 35) 48%, 
-        rgb(14 255 35) 52%, 
-        rgba(0, 0, 0, 0) 53%);
+        rgba(0, 0, 0, 0) 35%, 
+        rgb(14 255 35) 40%, 
+        rgb(14 255 35) 60%, 
+        rgba(0, 0, 0, 0) 65%);
     opacity: 0;
     transition: opacity 0.5s;
 
@@ -599,4 +628,68 @@ line-height: 40px;
      linear-gradient(to top, rgba(0, 0, 0), transparent);
 
     pointer-events: none;
+}
+
+#introIMG3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: inline-block;
+}
+
+
+
+.video.intro {
+    padding: 50px 0 100px 0;
+    background: rgba(0, 0, 0);
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    z-index: 6;
+    opacity: 0.8;
+}
+
+.video.intro::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    background: linear-gradient(to left, transparent, rgba(0, 0, 0, 1) 50%, transparent);
+    pointer-events: none;
+}
+
+.imageContainer-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imageContainer:first-child {
+    top: 0px;
+    left:-220px;
+}
+
+.imageContainer:last-child {
+    left: -730px;
+    top: 200vh; /* 원하는 값으로 조절하세요. */
+}
+
+.imageContainer:last-child::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+    linear-gradient(to right, rgba(0, 0, 0, 1), transparent)
+    ,linear-gradient(to left, rgba(0, 0, 0, 0.5), transparent)
+    ,linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent)
+    ,linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    pointer-events: none;
+}
+
+.imageContainer:last-child img{
+    height: 210vh;
 }

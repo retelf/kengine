@@ -73,10 +73,14 @@
         '인터넷에 자유로이 퍼져있는 잘못된 정보를 수집하지 않습니다.\n각 분야의 전문가들이 체계적으로 정리한 지식이 K엔진 데이터의 기반입니다.',
         '역사적으로 지식들은 "책"이라는 형태로 정제되어왔습니다. \n책은 인류가 지식의 연결관계를 체계적으로 저장한 자료입니다.\nK엔진은 바로 이러한 체계를 기반으로 합니다.',
         'K엔진은 실직자를 만들지 않습니다. \n전문지식을 가진 인력과의 상생을 추구하며, \n이러한 집단지성이 K엔진에 들어옴으로써 인하여 인류는 한층 더 진보하게 됩니다.',
-        'K엔진은 모든 나라의 언어로 번역됩니다. \n전 세계에 지식은 각각의 나라에서 체계적으로 정리하게 됩니다.\n그런 지식은 모든 언어로 번역되어 그 어떤 나라의 사람이라도 다가갈 수 있게 됩니다.'
+        'K엔진은 모든 나라의 언어로 번역됩니다. \n전 세계에 지식은 각각의 나라에서 체계적으로 정리하게 됩니다.\n그런 지식은 모든 언어로 번역되어 그 어떤 나라의 사람이라도 다가갈 수 있게 됩니다.',
+
     ];
 
     function typeText(element, text) {
+        if (typeof text !== 'string') {
+            return;
+        }
         let index = 0;
         
         // 커서 엘리먼트 생성
@@ -100,124 +104,145 @@
     
     
     
-// 스크롤 이벤트와 함께 동작하는 함수
-function checkVisibility(elements, delay) {
-    setTimeout(() => {
-        elements.forEach((element, idx) => {
-            let rect = element.getBoundingClientRect();
+    // 스크롤 이벤트와 함께 동작하는 함수
+    function checkVisibility(elements, delay) {
+        setTimeout(() => {
+            elements.forEach((element, idx) => {
+                let rect = element.getBoundingClientRect();
 
-            if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-                // element is in view
-                element.style.opacity = "1";    
-                let pElement = element.querySelector('p');
-                if (pElement && !pElement.getAttribute('data-typed')) {
-                    typeText(pElement, texts[idx]);
-                    pElement.setAttribute('data-typed', 'true');
-                }            
-            } else {
-                // element is not in view
-                element.style.opacity = "0";
-            }
-        });
-    }, delay);
-}
+                if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+                    // element is in view
+                    element.style.opacity = "1";    
+                    let pElement = element.querySelector('p');
+                    if (pElement && !pElement.getAttribute('data-typed')) {
+                        typeText(pElement, texts[idx]);
+                        pElement.setAttribute('data-typed', 'true');
+                    }            
+                } else {
+                    // element is not in view
+                    element.style.opacity = "0";
+                }
+            });
+        }, delay);
+    }
 
-// 페이지 로딩 후 지정된 시간 후에 각 요소의 가시성 체크
-checkVisibility(spanElements, 1000);
-checkVisibility(pElements, 2000);
+    // 페이지 로딩 후 지정된 시간 후에 각 요소의 가시성 체크
+    checkVisibility(spanElements, 1000);
+    checkVisibility(pElements, 2000);
 
-// 스크롤 이벤트 리스너 추가
-window.addEventListener('scroll', () => {
-    checkVisibility(spanElements, 0);
-    checkVisibility(pElements, 0);
-});
+    // 스크롤 이벤트 리스너 추가
+    $(window).scroll(function() {
+        checkVisibility(spanElements, 0);
+        checkVisibility(pElements, 0);
+    });
 
 
-document.addEventListener('DOMContentLoaded', function () {
-    // 비디오 엘리먼트를 선택합니다.
-    const videoElement = document.querySelector('.video video');
 
-    // 옵션을 설정합니다.
-    const options = {
-        root: null, // 뷰포트를 기준으로
-        rootMargin: '0px',
-        threshold: 0.5 // 요소의 50%가 보일 때 콜백 함수가 실행되도록 합니다.
-    };
-    // 콜백 함수를 정의합니다.
-    const callback = function (entries, observer) {
+
+    const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
-            if (entry.isIntersecting) { // 요소가 뷰포트에 보이면
-                videoElement.play(); // 비디오 재생
+            if (entry.isIntersecting) {
+                $('.video video').get(0).play();
             } else {
-                videoElement.pause(); // 비디오 일시정지
+                $('.video video').get(0).pause();
             }
         });
-    };
-    // Intersection Observer 객체를 생성합니다.
-    const observer = new IntersectionObserver(callback, options);
-    // 관찰 대상으로 비디오를 설정합니다.
-    observer.observe(videoElement);
-});
+    }, {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5
+    });
 
-var scrollTimeout;  // 스크롤 후 일정 시간을 계산하기 위한 변수
-
-$(document).on('scroll', function() {
-    var currentScrollTop = $(this).scrollTop();
-
-    if (currentScrollTop !== lastScrollTop) {
-        // 스크롤 값이 변경될 때
-        $('.scroll-bar').addClass('scrolled');
-
-        // 이전에 설정된 타이머가 있다면 초기화
-        clearTimeout(scrollTimeout);
-
-        // 일정 시간 후 클래스 제거
-        scrollTimeout = setTimeout(function() {
-            $('.scroll-bar').removeClass('scrolled');
-        }, 300);  // 1500ms(1.5초) 후에 .scrolled 클래스 제거
-    }
-
-    // 현재 스크롤 위치 기록
-    lastScrollTop = currentScrollTop;
-});
-
-var lastScrollTop = 0;  // 초기 스크롤 위치
+    observer.observe($('.video video').get(0));
 
 
 
-var currentIndex = -1;  // 초기 인덱스 설정
-var typeTextElements = $('.scroll-to');  // 모든 typeText 요소를 선택
-var isAnimating = false;  // 애니메이션 중인지 확인하는 플래그
+    var scrollTimeout;  // 스크롤 후 일정 시간을 계산하기 위한 변수
 
-$(document).on('mousewheel DOMMouseScroll', function(event) {
-    if (isAnimating) return;  // 애니메이션이 진행 중이면 추가 애니메이션 방지
+    $(document).on('scroll', function() {
+        var currentScrollTop = $(this).scrollTop();
 
-    if (event.originalEvent.wheelDelta < 0 || event.originalEvent.detail > 0) {
-        // 다음 typeText 요소로 이동
-        currentIndex++;
-        
-        // 모든 typeText 요소를 다 보여줬다면 더 이상 스크롤하지 않음
-        if (currentIndex >= typeTextElements.length) {
-            currentIndex = typeTextElements.length - 1;  // 인덱스를 마지막 요소로 설정
-            return;  // 함수 종료
+        if (currentScrollTop !== lastScrollTop) {
+            // 스크롤 값이 변경될 때
+            $('.scroll-bar').addClass('scrolled');
+
+            // 이전에 설정된 타이머가 있다면 초기화
+            clearTimeout(scrollTimeout);
+
+            // 일정 시간 후 클래스 제거
+            scrollTimeout = setTimeout(function() {
+                $('.scroll-bar').removeClass('scrolled');
+            }, 300);  // 1500ms(1.5초) 후에 .scrolled 클래스 제거
         }
-        
-        // 중앙에 위치하도록 스크롤 위치 조정
-        var targetTop = $(typeTextElements[currentIndex]).offset().top - ($(window).height() / 2) + ($(typeTextElements[currentIndex]).height() / 2);
 
-        isAnimating = true;  // 애니메이션 시작 전에 플래그를 설정
+        // 현재 스크롤 위치 기록
+        lastScrollTop = currentScrollTop;
+    });
 
-        $('html, body').stop().animate({
-            scrollTop: targetTop
-            
-        }, 1000, function() {
-             // 애니메이션이 완료된 후 플래그 재설정
-             isAnimating = false;
-        });
-        
-        event.preventDefault();
+    $(document).on('scroll', function() {
+        var currentScrollTop = $(this).scrollTop();
+        var lastScrollBar = $('.scroll-bar').last(); // 마지막 .scroll-bar 요소를 선택
+    
+        if (isElementInViewport(lastScrollBar[0])) { // 마지막 .scroll-bar 요소가 화면에 보이는지 확인
+            $('html, body').scrollTop($(document).height()); // 스크롤을 페이지의 최하단으로 이동
+        }
+    
+        lastScrollTop = currentScrollTop;
+    });
+
+    var lastScrollTop = 0;  // 초기 스크롤 위치
+
+
+
+    var currentIndex = -1;  // 초기 인덱스 설정
+    var typeTextElements = $('.scroll-to');  
+    var isAnimating = false;  // 애니메이션 중인지 확인하는 플래그
+
+
+    /* j쿼리로 불가능한 항목 어쩔수없이 js로 동작 */
+    document.addEventListener('mousewheel', handleScroll, { passive: false });
+    document.addEventListener('DOMMouseScroll', handleScroll, { passive: false });
+
+    function handleScroll(event) {
+        // 애니메이션이 진행 중이면 추가 애니메이션과 스크롤 동작 방지
+        if (isAnimating) {
+            event.preventDefault();
+            return;
+        }
+
+        var wheelDelta = event.wheelDelta;
+        var detail = event.detail;
+
+        if (wheelDelta < 0 || detail > 0) {
+            // 다음 typeText 요소로 이동
+            currentIndex++;
+
+            // 모든 typeText 요소를 다 보여줬다면 더 이상 스크롤하지 않음
+            if (currentIndex >= typeTextElements.length) {
+                currentIndex = typeTextElements.length - 1;  // 인덱스를 마지막 요소로 설정
+                return;  // 함수 종료
+            }
+
+            // 중앙에 위치하도록 스크롤 위치 조정
+            var targetTop = $(typeTextElements[currentIndex]).offset().top - ($(window).height() / 2) + ($(typeTextElements[currentIndex]).height() / 2);
+
+            isAnimating = true;  // 애니메이션 시작 전에 플래그를 설정
+
+            $('html, body').stop().animate({
+                scrollTop: targetTop
+            }, 1000, function() {
+                // 애니메이션이 완료된 후 3초 동안 플래그를 true 상태로 유지
+                setTimeout(function() {
+                    isAnimating = false; // 3초 후에 플래그 재설정
+                }, 500);
+            });
+
+            event.preventDefault(); // 스크롤 동작 방지
+        }
     }
-});
 
+
+
+    
 
 });
