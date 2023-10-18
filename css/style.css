@@ -31,8 +31,8 @@ video {z-index: 300; position: relative;width: 100%; display:block; margin:0 aut
 .header {position: relative; z-index: 9999 !important;
     background-color: rgba(0,0,0,0.2);box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px; color:#fff; height:75px}
 .header .logo {float:left; font-size:26px; margin:20px 0; width:20%}
-.header .nav {float:left; font-size:15px; padding:20px 0; width:calc(80% - 270px)}
-.header .nav ul {display:flex; justify-content: center;}
+.header .nav {float:left; font-size:15px; padding:20px 0; width:80%}
+.header .nav ul {text-align: center; display:flex; justify-content: center;}
 .header .nav ul li {float:left; margin:8px 50px 0 0}
 /* 23.10.11. 이재황 세무사 : box를 header클래스 에서 제외함으로 box_container으로 수정 및 관련 css 추가 */
 .box_container {padding: 0px !important; display: flex; justify-content: left; align-items: center; }
@@ -42,6 +42,9 @@ video {z-index: 300; position: relative;width: 100%; display:block; margin:0 aut
 .box_container a {color:#fff}
 .box_container .box:hover a {color:rgb(76, 71, 145);}
 
+.header.lightmode .nav{
+    width:calc(80% - 270px)
+}
 
 .header a {color:#fff}
 
@@ -70,6 +73,7 @@ video {z-index: 300; position: relative;width: 100%; display:block; margin:0 aut
     padding: 10px 0px;
     text-align: center;
     width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px;
 }
 .footer .container {position:relative}
 .footer p {position:absolute; top:5px; right:0; border:0 solid #fff; color:#fff; border-radius:30px; height:40px; width:150px; line-height:40px; text-align:right; padding:0; margin:0; font-size:16px}
@@ -103,8 +107,7 @@ video {z-index: 300; position: relative;width: 100%; display:block; margin:0 aut
     transition: background-color 0.2s ease 0s, color 0.2s ease 0s;
     font-size: 0.8rem;
     font-weight: 400;
-    background-color: rgb(38, 150, 1);
-    border: 3px solid rgb(33, 132, 0);
+    border: 1px solid rgba(0, 0, 0, 0.658);
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -140,9 +143,30 @@ video {z-index: 300; position: relative;width: 100%; display:block; margin:0 aut
     opacity: 1;
 }
 
-#floatingButton.whitemode {
+.changeBotton.lightmode {
     color: rgb(0,0,0);
-    background-color: rgb(227, 225, 215);
+    border: 1px solid rgb(0,0,0);
+}
+
+.main.index.lightmode{
+    display: none;
+}
+
+.main_lightmode.lightmode{
+    display: flex;
+}
+
+.scroll-bar.lightmode{
+    display: none;
+}
+
+#header.lightmode, #header.lightmode .logo a{
+    color: black;
+}
+
+.lnb.lightmode, .lnb.lightmode a{
+    background-color: white;
+    color: black;
 }
 
 /* 23.10.11. 이재황세무사 : 화이트모드 추가*/
@@ -151,13 +175,13 @@ body {transition: background-color 0.5s, color 0.5s;}
 .box a{transition: background-color 0.5s, color 0.5s;}
 
 /* 23.0.15. 이재황세무사 : 화이트모드 배경색 흰색 변경 (디자이너 피드백 반영)*/
-body.whitemode {background-color: white; transition: background-color 0.5s, color 0.5s;}
-.header.whitemode {background-color: rgb(245, 245, 245) !important; transition: background-color 0.5s; }
-.header.whitemode a {color:rgb(0,0,0); transition: color 0.5s, background-color 0.5s, transform 0.5s;}
-.page02_1 .box.whitemode a {color:rgbwhite; transition: color 0.5s;}
-.page02_1 .box.whitemode ul{transition: all 0.5s;    background-color: #f7faff !important}
-.page04_1 .box.whitemode li {color:black; transition: color 0.5s;}
-.page04_1 .box.whitemode ul{transition: all 0.5s;    background-color: #f7faff !important}
+body.lightmode {background-color: white; transition: background-color 0.5s, color 0.5s;}
+.header.lightmode {background-color: rgb(245, 245, 245) !important; transition: background-color 0.5s; }
+.header.lightmode a {color:rgb(0,0,0); transition: color 0.5s, background-color 0.5s, transform 0.5s;}
+.page02_1 .box.lightmode a {color:rgbwhite; transition: color 0.5s;}
+.page02_1 .box.lightmode ul{transition: all 0.5s;    background-color: #f7faff !important}
+.page04_1 .box.lightmode li {color:black; transition: color 0.5s;}
+.page04_1 .box.lightmode ul{transition: all 0.5s;    background-color: #f7faff !important}
 
 .logo a{display: inline-block; font-weight: 700; transition:color 0.5s;  position: absolute;  left: 50px;}
 .logo a:hover{color:rgb(143, 136, 215);}
@@ -167,21 +191,21 @@ body.whitemode {background-color: white; transition: background-color 0.5s, colo
 .footer {transition:color 0.5s, background-color 0.5s;}
 .footer .container {transition:color 0.5s;}
 
-.footer.whitemode {background-color: rgb(245, 245, 245); transition:color 0.5s, backgorund-color 0.5s;}
-.footer.whitemode .container {color:rgb(0,0,0)}
+.footer.lightmode {background-color: rgb(245, 245, 245); transition:color 0.5s, backgorund-color 0.5s;}
+.footer.lightmode .container {color:rgb(0,0,0)}
 .footer a:hover {background-color: rgb(143, 136, 215); transition: color 0.5s, background-color 0.5s;}
 
-.pagesection.whitemode {color: black; transition: all 0.5s; }
+.pagesection.lightmode {color: black; transition: all 0.5s; }
 
-.main .title.whitemode::before { background: rgb(0, 0, 0); transition: all 0.5s; }
+.main .title.lightmode::before { background: rgb(0, 0, 0); transition: all 0.5s; }
 
 /* 23.10.15. 이재황세무사 : 디자이너 요청으로 하이라이트 백그라운드 제거, 색 제거, 강조만 표시*/
 
 #cafeLink { transition: all 0.5s;}
 
-#cafeLink.whitemode{
+#cafeLink.lightmode{
  background-color: rgb(245, 245, 245);
- color: rgb(38, 150, 1);
+ color: rgb(0, 0, 0);
  transition: all 0.5s;
 }
 /*---이상 화이트모드*/
@@ -303,13 +327,15 @@ body.whitemode {background-color: white; transition: background-color 0.5s, colo
 .footer p {position:absolute; top:5px; right:10px; border:0 solid #fff; color:#fff; border-radius:30px; height:40px; width:150px; line-height:40px; text-align:right; padding:0; margin:0; font-size:16px}
 .page02_1 .box ul {height:400px}
 .nav ul{width: 70vw;}
+.changeBTN {    right: 1vw;
+    position: absolute;}
 }
 
 @media (max-width:768px){
 
 .box.scroll-to {
     position: relative !important;
-    flex-direction: column;
+    flex-direction: ce;
     top: 221px;
 }
 
@@ -692,4 +718,73 @@ line-height: 40px;
 
 .imageContainer:last-child img{
     height: 210vh;
+}
+
+.changeBTN {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.changeBotton {
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    border: 1px white solid;
+    padding: 6px;
+    cursor: pointer;
+    transition: all 0.5s;
+    right: 3vw;
+    position: absolute;
+}
+
+.changeBotton:hover {
+    color: rgb(143, 136, 215);
+    border:1px rgb(143, 136, 215) solid;
+    transition: all 0.5s;
+
+}
+
+.main_lightmode video{
+    max-height: 80vh;
+    margin-top: 10px;
+}
+
+.wrap {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.lightmode_Text{
+    display: none;
+}
+
+.lightmode_Text.lightmode{
+    display: block;
+}
+
+.heavymode_Text.lightmode{
+    display: none;
+}
+
+.header .logo{
+ width: 10%;
+}
+
+.header.lightmode .logo{
+    width: 20%;
+   }
+
+.haedr .nav{
+    width: 80%;
+}
+
+.main_lightmode {
+    display: none;
+}
+
+.main_lightmode.lightmode {
+    display: flex;
 }

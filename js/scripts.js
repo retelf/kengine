@@ -1,4 +1,4 @@
- /* 23.10.11. 이재황세무사 : floatingbutton 및 기능 추가*/
+ /* 23.10.11. 이재황세무사 : changeBTN 및 기능 추가*/
  $(document).ready(function(){
     $('body').addClass('no-transition');
 
@@ -9,7 +9,7 @@
         var $lnb = $('.lnb');
         var $li_a = $lnb.find('li>a');
         var $cover = $('.body_cover');
-        var $floatingButton =$('#floatingButton')
+        var $changeBTN =$('.changeBotton')
         var speed=300;
         $open.on('click', function () {
             $lnb.addClass('on');
@@ -32,25 +32,30 @@
 
         // 23.10.12. 이재황 세무사 : 페이지 로딩 시 저장된 모드 상태를 적용합니다.
         applyMode(localStorage.getItem('mode'));
-        $floatingButton.on('click', function() {
-            const currentMode = localStorage.getItem('mode') === 'whitemode' ? 'default' : 'whitemode';
+        $changeBTN.on('click', function() {
+            const currentMode = localStorage.getItem('mode') === 'lightmode' ? 'default' : 'lightmode';
             localStorage.setItem('mode', currentMode);
             
             applyMode(currentMode);
         });
     
         function applyMode(mode) {
-            const elementsToToggle = ['body', '.header', '.box', '#floatingButton', '.footer', '.pagesection', '.title', '.highlight', '#cafeLink'];
+            const elementsToToggle = [
+                'body', '#header', '.header', '.box', 
+                '.changeBotton', '.footer', '.pagesection', 
+                '.title', '.highlight', '#cafeLink', '.main.index', 
+                '.main_lightmode', '.scroll-bar', '.lnb',
+                '.changeBotton','.lightmode_Text','.heavymode_Text',];
     
-            if (mode === 'whitemode') {
+            if (mode === 'lightmode') {
                 $.each(elementsToToggle, function(index, selector) {
-                    $(selector).addClass('whitemode');
+                    $(selector).addClass('lightmode');
                 });
                 $('#darkIcon').hide();
                 $('#whiteIcon').show();
             } else {
                 $.each(elementsToToggle, function(index, selector) {
-                    $(selector).removeClass('whitemode');
+                    $(selector).removeClass('lightmode');
                 });
                 $('#whiteIcon').hide();
                 $('#darkIcon').show();
@@ -69,6 +74,14 @@
    
    
     let texts = [
+        'KNOWLEDGE ENGINE: Knowledge-based Engine\nValidated knowledge data accumulated by experts in each field and connected information...',
+        'We do not collect incorrect information freely distributed on the internet.\nThe foundation of KEngine data is knowledge systematically organized by experts in various fields.',
+        'Historically, knowledge has been refined in the form of "books".\nBooks are materials where humanity has systematically stored the interrelations of knowledge.\nKEngine is based on such a system.',
+        'KEngine does not create unemployed individuals.\nIt seeks symbiosis with knowledgeable professionals,\nand through such collective intelligence coming into KEngine, humanity advances even further.',
+        'KEngine is translated into every country`s language.\nKnowledge is systematically organized in each country around the world.\nSuch knowledge is translated into all languages, making it accessible to anyone, regardless of their country.'
+    ];
+    
+    let texts_KOR = [
         'KNOWLEDGE ENGINE : 지식기반 엔진\n각 분야의 전문가들에 의해 쌓이는 검증된 지식 데이터와 그와 연결되는 정보...',
         '인터넷에 자유로이 퍼져있는 잘못된 정보를 수집하지 않습니다.\n각 분야의 전문가들이 체계적으로 정리한 지식이 K엔진 데이터의 기반입니다.',
         '역사적으로 지식들은 "책"이라는 형태로 정제되어왔습니다. \n책은 인류가 지식의 연결관계를 체계적으로 저장한 자료입니다.\nK엔진은 바로 이러한 체계를 기반으로 합니다.',
@@ -160,6 +173,11 @@
     var scrollTimeout;  // 스크롤 후 일정 시간을 계산하기 위한 변수
 
     $(document).on('scroll', function() {
+            // .main.index.lightmode 가 존재하면 아무런 동작도 수행하지 않음
+    if ($('.main.index.lightmode').length) {
+        return;
+    }
+
         var currentScrollTop = $(this).scrollTop();
 
         if (currentScrollTop !== lastScrollTop) {
@@ -180,6 +198,11 @@
     });
 
     $(document).on('scroll', function() {
+            // .main.index.lightmode 가 존재하면 아무런 동작도 수행하지 않음
+        if ($('.main.index.lightmode').length) {
+            return;
+        }
+
         var currentScrollTop = $(this).scrollTop();
         var lastScrollBar = $('.scroll-bar').last(); // 마지막 .scroll-bar 요소를 선택
     
@@ -204,6 +227,11 @@
     document.addEventListener('DOMMouseScroll', handleScroll, { passive: false });
 
     function handleScroll(event) {
+            // .main.index.lightmode 가 존재하면 아무런 동작도 수행하지 않음
+    if ($('.main.index.lightmode').length) {
+        return;
+    }
+
         // 애니메이션이 진행 중이면 추가 애니메이션과 스크롤 동작 방지
         if (isAnimating) {
             event.preventDefault();
