@@ -1,7 +1,48 @@
 ﻿body {
-    background-color: black;
-    color: white !important;
+    background-color: #616161;
+    color:white;
+    line-height:160%;
+    margin:0;
+    padding:0;
 }
+
+body.lightmode {
+    background-color: white;
+}
+
+body div {
+    color:white ;
+}
+
+body.lightmode div {
+    color:rgb(0, 0, 0) !important;
+}
+
+.div_service_korean, .title{
+    pointer-events:none;
+}
+
+.div_output_letters_length{
+    color: black !important;
+}
+
+#svg_arrow{
+    cursor: pointer;
+}
+
+
+.table {
+    color: white;
+}
+
+.table td{
+    color: white;
+}
+
+#td_answer td{
+    color: #000;
+}
+
 
 a, span {
     color: wheat !important;

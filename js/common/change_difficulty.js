@@ -6,6 +6,9 @@
 
         var keywords = $("#txt_query").val();
 
+        // .div_service_english의 display 속성을 확인
+        var englishServiceDisplay = $(".div_service_english").css("display");
+
         if ($("#div_difficulty").data("professional") == "yes") {
 
             query_data.query_mode = "general";
@@ -15,8 +18,12 @@
             }
 
             $("#div_difficulty").data("professional", "no");
-            $("#div_difficulty").text("전문가 모드로 전환하기");
-
+            if(englishServiceDisplay !== "none") {
+                $("#div_difficulty").text("Switch to professional mode");
+            } else {
+                $("#div_difficulty").text("전문가 모드로 전환하기");
+            }
+            
         } else {
 
             query_data.query_mode = "professional";
@@ -26,8 +33,11 @@
             }
 
             $("#div_difficulty").data("professional", "yes");
-            $("#div_difficulty").text("눈높이 모드로 전환하기");
-        }
+            if(englishServiceDisplay !== "none") {
+                $("#div_difficulty").text("Switch to general mode");
+            } else {
+                $("#div_difficulty").text("눈높이 모드로 전환하기");
+            }        }
 
     }
 }

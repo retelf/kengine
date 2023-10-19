@@ -55,24 +55,25 @@
 
         });
 
-        $("#svg_language").on("click", function () {
+        $("#svg_arrow").on("click", function () {
 
             var display_state = $("#div_korean").css("display");
 
             if (display_state === "none") {
                 $(".div_language").css("display", "flex");
-                $(this).addClass("rotate");
             } else {
                 $(".div_language").css("display", "none");
-                $(this).removeClass("rotate");
             }
 
         });
 
+        /** 23.10.19. 이재황 : 왜 눈높이모드 및 영어전환시 사라지지? 
+         *             $("#table_change_amount").hide();
+
+         * 제외 */
         $(".div_language").on("click", function () {
 
             query_data.simple_case = true;
-            $("#table_change_amount").hide();
             c_change_language.exe($(this));
 
         });
@@ -80,7 +81,6 @@
         $("#div_difficulty").on("click", function () {
 
             query_data.simple_case = true;
-            $("#table_change_amount").hide();
             c_change_difficulty.exe($(this));
 
         });

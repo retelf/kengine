@@ -1,15 +1,17 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="default_desktop.aspx.vb" Inherits="WebApplication2.default_desktop" %>
+<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="default_desktop.aspx.vb" Inherits="WebApplication2.default_desktop" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head runat="server">
+    <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title></title>
     <link href="css/general.css" rel="stylesheet" />
     <script src='js/GLOBAL/general/detect_browser.js' type='text/javascript'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <%--<script src='js/GLOBAL/general/jquery.js' type='text/javascript'></script>--%>
     <script src="js/common/exe/exe_query.js"></script>
     <script src="js/common/event_handler.js"></script>
     <script src="js/common/exe/exe_get_table.js"></script>
@@ -34,29 +36,29 @@
             <table style="width: 100%;">
                 <tr>
                     <td>
-                        <table style="width: 100%;padding-top:20px">
+                        <table class="table" style="width: 100%;padding-top:20px">
                             <tr>
                                 <td style="width:30%;vertical-align:top">
                                     <table style="width: 250px;text-align:center;margin:auto;">
                                         <tr>
                                             <td style="text-align:right;">
-                                                <div id="div_mode_outer" style="text-align:right; width: 69px; height: 35px; margin-right:5px; background: #EEEEEE; display: inline-table;border-radius: 50px">
+                                                <div class="changeBotton" id="div_mode_outer" style="text-align:right; width: 69px; height: 35px; margin-right:5px; background: #EEEEEE; display: inline-table;border-radius: 50px">
                                                     <div id="div_mode_inner" style="vertical-align:middle;width: 27px;height: 27px; background: #4867F8;display: inline-table; border-radius: 9999px"></div>
                                                 </div>                                               
                                             </td>
                                             <td style="text-align:left;margin:auto;">
-                                                <div id="div_mode_name" style="color: #333436; font-size: 18px; font-family: Pretendard; font-weight: 500; word-wrap: break-word">White Mode</div>
+                                                <div id="div_mode_name" style="font-size: 18px; font-family: Pretendard; font-weight: 500; word-wrap: break-word">White Mode</div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td colspan="2" style="text-align:center">
-                                                <table style="text-align:center; margin:auto">
+                                                <table id="svg_arrow" style="text-align:center; margin:auto">
                                                     <tr>
                                                         <td style="align-items : center; padding-bottom:5px">
-                                                            <div style="width: 100px; height: 21px; color: #242425; font-size: 18px; font-family: Pretendard; font-weight: 500; word-wrap: break-word">Language</div>                                                          
+                                                            <div style="width: 100px; height: 21px; font-size: 18px; font-family: Pretendard; font-weight: 500; word-wrap: break-word">Language</div>                                                          
                                                         </td>
                                                         <td style="align-items : center; ">
-                                                            <div class="svg-container_language rotate">
+                                                            <div class="svg-container_language">
                                                                 <svg id="svg_language" class="svg_arrow" width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                     <g>
                                                                         <path d="M11 6L6 1L1 6" stroke="#242425" stroke-linecap="round" stroke-linejoin="round"/>
@@ -88,7 +90,7 @@
                                     <table style="width: 100%;">
                                         <tr>
                                             <td colspan="2" style="text-align:center">
-                                                <div style="text-align: center;line-height:160%; color: #4867F8; font-size: 40px; font-family: Montserrat; font-weight: 600; word-wrap: break-word">KEngineOS v. 0.3.00</div>
+                                                <div class="title" style="text-align: center;line-height:160%;  font-size: 40px; font-family: Montserrat; font-weight: 600; word-wrap: break-word">KEngineOS v. 0.3.00</div>
                                             </td>
                                         </tr>
                                         <tr>
@@ -101,7 +103,10 @@
                                         </tr>
                                         <tr>
                                             <td style="text-align:right">
-                                                <div id="div_difficulty" data-professional="yes" style="color: #038B9D; font-size: 14px; font-family: Pretendard; font-weight: 500; text-decoration: underline; word-wrap: break-word">눈높이 모드로 전환하기</div>
+                                                <div id="div_difficulty" data-professional="yes" style="font-size: 14px; font-family: Pretendard; font-weight: 500; text-decoration: underline; word-wrap: break-word">
+                                                    <div class="div_service_korean"> 눈높이 모드로 전환하기</div>
+                                                    <div class="div_service_english" style="display: none;"> Switch to general mode</div>
+                                                </div>
                                             </td>
                                         </tr>
                                         <tr>
@@ -136,10 +141,13 @@
                                                 <table style="text-align:center; margin:auto">
                                                     <tr>
                                                         <td style="align-items : center; ">
-                                                            <div style="color: #363333; font-size: 14px; font-family: Inter; font-weight: 400; word-wrap: break-word">출력글자수</div>
+                                                            <div style="color: #363333; font-size: 14px; font-family: Inter; font-weight: 400; word-wrap: break-word">
+                                                                <div class="div_service_korean" style="text-align: left;">출력글자수</div>
+                                                                <div class="div_service_english" style="display:none;text-align: left;">Number of output characters</div>                                                                               
+                                                            </div>
                                                         </td>
                                                         <td style="align-items : center; ">
-                                                            <div id="div_output_letters_length" style="width: 75px; height: 24px;  background: #EEEEEE; border-radius: 10px; ">0</div>
+                                                            <div id="div_output_letters_length" style="color: #000;width: 75px; height: 24px;  background: #EEEEEE; border-radius: 10px; ">0</div>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -159,7 +167,11 @@
                                                             </div>                                                           
                                                         </td>
                                                         <td style="align-items : center; ">
-                                                           <div style="width:100px; text-align: center; color: #363333; font-size: 14px; font-family: Inter; display:inline-block; font-weight: 700; word-wrap: break-word">출력량조정</div>
+                                                           <div style="width:100px; text-align: center; color: #363333; font-size: 14px; font-family: Inter; display:inline-block; font-weight: 700; word-wrap: break-word">
+                                                            <div class="div_service_korean">출력량조정 </div>
+                                                            <div class="div_service_english" style="display: none;">Adjust the number of output characters</div>
+
+                                                        </div>
                                                         </td>
                                                         <td style="align-items : center; ">
                                                             <div class="svg-container">
@@ -194,5 +206,8 @@
                 </tr>
             </table>
         </div>
+
+        <script src="./js/engine_scripts.js"></script>
+
 </body>
 </html>

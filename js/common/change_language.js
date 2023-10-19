@@ -23,9 +23,14 @@
 
             if ($("#div_difficulty").data("professional") == "yes") {
                 query_data.query_mode = "professional";
+                $("#div_difficulty").text("일반인 모드로 전환하기");
             } else {
                 query_data.query_mode = "general";
+                $("#div_difficulty").text("전문가 모드로 전환하기");
             };
+
+           
+            
 
         } else {
 
@@ -35,10 +40,15 @@
             $("#div_korean_inner").css("color", "#1E1E1E");
             $("#div_english").css("background", "#4867F8");
             $("#div_english_inner").css("color", "white");
-            $("#div_difficulty").css("display", "none");
             $("#div_korean_inner").data("selected", "unselected");
 
             query_data.query_mode = "english";
+
+            if ($("#div_difficulty").data("professional") == "yes") {
+                $("#div_difficulty").text("Switch to general mode");
+            } else {
+                $("#div_difficulty").text("Switch to professional mode");
+            };
         }
 
         $(".div_language").css("display", "none");

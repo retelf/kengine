@@ -176,9 +176,19 @@
             // .main.index.lightmode 가 존재하면 아무런 동작도 수행하지 않음
     if ($('.main.index.lightmode').length) {
         return;
-    }
+    }    
 
         var currentScrollTop = $(this).scrollTop();
+
+        if (currentScrollTop > lastScrollTop) {
+            // 아래로 스크롤할 때: header를 숨김
+            $('.header').fadeOut(); 
+            $('#header').fadeOut(); 
+        } else {
+            // 위로 스크롤할 때: header를 보임
+            $('.header').fadeIn();
+            $('#header').fadeIn(); 
+        }
 
         if (currentScrollTop !== lastScrollTop) {
             // 스크롤 값이 변경될 때
@@ -203,6 +213,7 @@
             return;
         }
 
+           
         var currentScrollTop = $(this).scrollTop();
         var lastScrollBar = $('.scroll-bar').last(); // 마지막 .scroll-bar 요소를 선택
     
