@@ -15,21 +15,30 @@
             url: "server_side.aspx/exe", // 서버 메서드의 경로
             contentType: "application/json; charset=utf-8", // 요청 헤더 설정
             dataType: "json", // 서버 응답 데이터 형식
-            data: JSON.stringify({ keywords: keywords, desirable_content_length_count: query_data.desirable_content_length_count }), // 요청 본문 데이터 (JSON 형식)
+            data: JSON.stringify({
+                keywords: keywords,
+                query_mode: query_data.query_mode,
+                orderred_datarow_collection_mode: query_data.orderred_datarow_collection_mode,
+                simple_case: query_data.simple_case,
+                i_orderred_datarow_collection: query_data.i_orderred_datarow_collection,
+                desirable_content_length_count: query_data.desirable_content_length_count
+            }), 
 
             success: function (response) {
-                // 성공적으로 데이터를 받았을 때 실행되는 코드
                 $("#td_answer").find('#a_content_' + number).each(function (index) {
 
                     let result = response.d + "";
-                    $(this).html(result);
+
+                    let splitted_result = c_method_split.exe(result, "\|\*\|");
+
+                    query_data.i_orderred_datarow_collection = splitted_result[0] * 1;
+                    $(this).html(splitted_result[1]);
 
                     let length = $(this).text().length;
                     $("#div_output_letters_length").html(length);
                 });
             },
             error: function (error) {
-                // 요청이 실패하거나 오류 응답을 받았을 때 실행되는 코드
                 console.error('요청 실패 또는 오류 응답', error);
             }
         });

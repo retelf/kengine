@@ -1,13 +1,19 @@
-﻿.svg-container {
+﻿body {
+    background-color: black;
+    color: white !important;
+}
+
+a, span {
+    color: wheat !important;
+}
+
+.svg-container {
     display: flex;
     align-items: center;
     background-color: #EEEEEE;
     height: 16px;
 }
 
-body {
-    background-color: beige;
-}
 
 .svg-container_language {
     display: flex;

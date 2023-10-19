@@ -18,6 +18,8 @@
     <script src="js/common/change_output_amount.js"></script>
     <script src="js/common/change_difficulty.js"></script>
     <script src="js/common/static.js"></script>
+    <script src="js/common/set_query_mode_non_simple.js"></script>
+    <script src="js/common/method_split.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -89,14 +91,14 @@
                                         <tr>
                                             <td colspan="2" style="text-align:center; ">
                                                 <div id="div_korean" class="div_language" style="width: 110px; height:25px; background: #4867F8; align-items : center; display : none; margin:auto ;">
-                                                    <div id="div_korean_inner" style="width 60px; text-align: center; margin:auto ; color: white; font-size: 16px; font-family: Pretendard; font-weight: 500; word-wrap: break-word">한국어</div>
+                                                    <div id="div_korean_inner" data-selected="selected" style="width 60px; text-align: center; margin:auto ; color: white; font-size: 16px; font-family: Pretendard; font-weight: 500; word-wrap: break-word">한국어</div>
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td colspan="2" style="text-align:center">
                                                 <div id="div_english" class="div_language" style="width: 110px; height:25px; background: #EEEEEE; align-items : center; display : none; margin:auto ;">
-                                                    <div id="div_english_inner" style="width: 60px; text-align: center; margin:auto; color: #1E1E1E; font-size: 16px; font-family: Pretendard; font-weight: 500; word-wrap: break-word">English</div>
+                                                    <div id="div_english_inner" data-selected="unselected" style="width: 60px; text-align: center; margin:auto; color: #1E1E1E; font-size: 16px; font-family: Pretendard; font-weight: 500; word-wrap: break-word">English</div>
                                                 </div>
                                             </td>
                                         </tr>
@@ -122,7 +124,7 @@
                                         </tr>
                                         <tr>
                                             <td id="td_arrow">
-                                                <table style="text-align:center; margin:auto">
+                                                <table id="table_change_amount" style="text-align:center; margin:auto">
                                                     <tr>
                                                         <td style="align-items : center; ">
                                                             <div class="svg-container rotate">
@@ -164,14 +166,14 @@
                                         <tr>
                                             <td colspan="2" style="text-align:center">
                                                 <div style="text-align: center;line-height:160%; color: #1E1E1E; font-size: 14px; font-family: Montserrat; font-weight: 400; word-wrap: break-word">
-                                                    <div class="div_service_korean" style="text-align: left;">현재 한국 세무회계 중 법인세 분야에 한해서만 서비스를 제공하고 있습니다. 아래의 채팅앱이 비록 OS 0.3 버전 상에서 구동되고 있지만 그런대로 잘 나오는 것을 확인할 수 있습니다.</div>
-                                                    <div class="div_service_english" style="display:none;text-align: left;">Currently, we only provide services in the corporate tax field of Korean tax accounting. Although the chat app below runs on OS 0.3 version, you can see that it is coming out not bad.</div>
+                                                    <div class="div_service_korean" style="text-align: left;">현재 한국 세무회계 중 법인세 분야에 한해서만 서비스를 제공하고 있습니다. 아래의 채팅앱이 비록 OS 0.3 버전 상에서 구동되고 있지만 그런대로 잘 나오는 것을 확인할 수 있습니다. 아기 예수의 모습을 볼 수 있습니다.</div>
+                                                    <div class="div_service_english" style="display:none;text-align: left;">Currently, we only provide services in the corporate tax field of Korean tax accounting. Although the chat app below runs on OS 0.3 version, you can see that it is coming out not bad. Now, you're looking at Baby Jesus.</div>
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td style="text-align:right">
-                                                <div id="div_difficulty" style="color: #038B9D; font-size: 14px; font-family: Pretendard; font-weight: 500; text-decoration: underline; word-wrap: break-word">눈높이 모드로 전환하기</div>
+                                                <div id="div_difficulty" data-professional="yes" style="color: #038B9D; font-size: 14px; font-family: Pretendard; font-weight: 500; text-decoration: underline; word-wrap: break-word">눈높이 모드로 전환하기</div>
                                             </td>
                                         </tr>
                                         <tr>

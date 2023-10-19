@@ -23,7 +23,9 @@
         }
 
         var keywords = $("#txt_query").val();
-        c_exe_query.exe(keywords);
+        if (desirable_content_length_count > 0) {
+            c_exe_query.exe(keywords);
+        }
     }
 
 }
