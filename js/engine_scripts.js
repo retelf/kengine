@@ -5,7 +5,7 @@
     //lnb
     (function () {         
       
-        var $changeBTN =$('.changeBotton')
+        var $changeBTN =$('#div_difficulty')
        
         applyMode(localStorage.getItem('mode'));
         $changeBTN.on('click', function() {
@@ -17,7 +17,8 @@
     
         function applyMode(mode) {
             const elementsToToggle = [
-                'body', '.changeBotton'];
+                'body', '.changeBotton','#td_answer',
+                '.footer'];
     
             if (mode === 'lightmode') {
                 $.each(elementsToToggle, function(index, selector) {
@@ -37,7 +38,14 @@
     }, 500); // 100ms 후에 제거
 
   
+ // 무한 루프를 피하기 위해 일정한 최대 값 설정
+ let maxAttempts = 10; 
+ let counter = 0;
 
+ while ($('#q_content_' + counter).length && counter < maxAttempts) {
+     $('#q_content_' + counter).css('color', 'white');
+     counter++;
+ }
     
 
 });

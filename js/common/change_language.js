@@ -23,7 +23,7 @@
 
             if ($("#div_difficulty").data("professional") == "yes") {
                 query_data.query_mode = "professional";
-                $("#div_difficulty").text("일반인 모드로 전환하기");
+                $("#div_difficulty").text("눈높이 모드로 전환하기");
             } else {
                 query_data.query_mode = "general";
                 $("#div_difficulty").text("전문가 모드로 전환하기");

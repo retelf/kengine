@@ -9,8 +9,38 @@
         var $lnb = $('.lnb');
         var $li_a = $lnb.find('li>a');
         var $cover = $('.body_cover');
-        var $changeBTN =$('.changeBotton')
+        var $changeBTN =$('.changeImg')
         var speed=300;
+
+        $('.logo a').on('click', function(event) {
+            $('.nav li').removeClass('active');
+            localStorage.removeItem('activeLiIndex');
+        })
+        $('.nav').on('click', 'li, li a, li a span', function(event) {
+            // 모든 li에서 'active' 클래스 제거
+            $('.nav li').removeClass('active');
+            
+            let targetLi;
+            // 클릭된 li에 'active' 클래스 추가
+            if ($(event.target).is('li')) {
+                targetLi = $(event.target);
+            } else {
+                targetLi = $(event.target).closest('li');
+            }
+            targetLi.addClass('active');
+        
+            // 클릭된 li의 인덱스를 localStorage에 저장
+            localStorage.setItem('activeLiIndex', targetLi.index());
+        });
+        function applyActiveState() {
+            const activeLiIndex = localStorage.getItem('activeLiIndex');
+            if (activeLiIndex !== null) {
+                $('.nav li').eq(activeLiIndex).addClass('active');
+            }
+        }
+        applyActiveState();
+
+        
         $open.on('click', function () {
             $lnb.addClass('on');
             $cover.addClass('on');
@@ -45,20 +75,24 @@
                 '.changeBotton', '.footer', '.pagesection', 
                 '.title', '.highlight', '#cafeLink', '.main.index', 
                 '.main_lightmode', '.scroll-bar', '.lnb',
-                '.changeBotton','.lightmode_Text','.heavymode_Text',];
+                '.changeBotton','.lightmode_Text','.heavymode_Text',
+                '.engineBotton', '.page04_2', '.page04_1',
+                '.mainTitle', '.footnote_line', 'video',
+                '.scroll-bar-highlight', '.scroll-bar-bg',
+                '.video_Top','.active','.gotoOS'];
     
             if (mode === 'lightmode') {
+                $('.header').css('background-color', 'rgba(255,255,255,1)');
+
                 $.each(elementsToToggle, function(index, selector) {
                     $(selector).addClass('lightmode');
                 });
-                $('#darkIcon').hide();
-                $('#whiteIcon').show();
             } else {
+                $('.header').css('background-color', 'rgba(0,0,0,0.3)');
+
                 $.each(elementsToToggle, function(index, selector) {
                     $(selector).removeClass('lightmode');
                 });
-                $('#whiteIcon').hide();
-                $('#darkIcon').show();
             }
         }
 
@@ -152,24 +186,6 @@
 
 
 
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                $('.video video').get(0).play();
-            } else {
-                $('.video video').get(0).pause();
-            }
-        });
-    }, {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.5
-    });
-
-    observer.observe($('.video video').get(0));
-
-
-
     var scrollTimeout;  // 스크롤 후 일정 시간을 계산하기 위한 변수
 
     $(document).on('scroll', function() {
@@ -179,29 +195,42 @@
     }    
 
         var currentScrollTop = $(this).scrollTop();
+        
+        var windowWidth = $(window).width(); // 현재 화면의 너비를 가져옵니다.
 
-        if (currentScrollTop > lastScrollTop) {
-            // 아래로 스크롤할 때: header를 숨김
-            $('.header').fadeOut(); 
-            $('#header').fadeOut(); 
+        if (currentScrollTop != 0){
+            $('.header').not('.lightmode').css('background-color', 'rgba(0,0,0,0.8)');
+            $('.header.lightmode').css('background-color','rgba(255,255,255,0.9)')
         } else {
-            // 위로 스크롤할 때: header를 보임
-            $('.header').fadeIn();
-            $('#header').fadeIn(); 
+            $('.header').not('.lightmode').css('background-color','rgba(0,0,0,0.3)')
+            $('.header.lightmode').css('background-color','rgba(255,255,255,1)')
+
         }
 
-        if (currentScrollTop !== lastScrollTop) {
-            // 스크롤 값이 변경될 때
-            $('.scroll-bar').addClass('scrolled');
-
-            // 이전에 설정된 타이머가 있다면 초기화
-            clearTimeout(scrollTimeout);
-
-            // 일정 시간 후 클래스 제거
-            scrollTimeout = setTimeout(function() {
-                $('.scroll-bar').removeClass('scrolled');
-            }, 300);  // 1500ms(1.5초) 후에 .scrolled 클래스 제거
-        }
+        
+            var documentHeight = $(document).height();
+            var windowHeight = $(window).height();
+            var currentScrollTop = $(this).scrollTop();
+        
+            var scrollPercentage = currentScrollTop / (documentHeight - windowHeight);
+        
+            // scroll-bar의 높이에 대한 스크롤 위치를 계산합니다.
+            var highlightPosition = scrollPercentage * (windowHeight - $('.scroll-bar-highlight').height());
+        
+            $('.scroll-bar-highlight').css('top', highlightPosition + 'px');
+        
+            if (currentScrollTop !== lastScrollTop) {
+                // 스크롤 값이 변경될 때
+                $('.scroll-bar').addClass('scrolled');
+        
+                // 이전에 설정된 타이머가 있다면 초기화
+                clearTimeout(scrollTimeout);
+        
+                // 일정 시간 후 클래스 제거
+                scrollTimeout = setTimeout(function() {
+                    $('.scroll-bar').removeClass('scrolled');
+                }, 300);
+            }    
 
         // 현재 스크롤 위치 기록
         lastScrollTop = currentScrollTop;
@@ -215,12 +244,7 @@
 
            
         var currentScrollTop = $(this).scrollTop();
-        var lastScrollBar = $('.scroll-bar').last(); // 마지막 .scroll-bar 요소를 선택
-    
-        if (isElementInViewport(lastScrollBar[0])) { // 마지막 .scroll-bar 요소가 화면에 보이는지 확인
-            $('html, body').scrollTop($(document).height()); // 스크롤을 페이지의 최하단으로 이동
-        }
-    
+            
         lastScrollTop = currentScrollTop;
     });
 
@@ -238,47 +262,47 @@
     document.addEventListener('DOMMouseScroll', handleScroll, { passive: false });
 
     function handleScroll(event) {
-            // .main.index.lightmode 가 존재하면 아무런 동작도 수행하지 않음
-    if ($('.main.index.lightmode').length) {
-        return;
-    }
-
-        // 애니메이션이 진행 중이면 추가 애니메이션과 스크롤 동작 방지
+        if ($('.main.index.lightmode').length) {
+            return;
+        }
+    
         if (isAnimating) {
             event.preventDefault();
             return;
         }
-
+    
         var wheelDelta = event.wheelDelta;
         var detail = event.detail;
-
-        if (wheelDelta < 0 || detail > 0) {
-            // 다음 typeText 요소로 이동
+    
+        if (wheelDelta < 0 || detail > 0) { // 아래로 스크롤
             currentIndex++;
-
-            // 모든 typeText 요소를 다 보여줬다면 더 이상 스크롤하지 않음
             if (currentIndex >= typeTextElements.length) {
-                currentIndex = typeTextElements.length - 1;  // 인덱스를 마지막 요소로 설정
-                return;  // 함수 종료
+                currentIndex = typeTextElements.length - 1;
+                return;
             }
-
-            // 중앙에 위치하도록 스크롤 위치 조정
-            var targetTop = $(typeTextElements[currentIndex]).offset().top - ($(window).height() / 2) + ($(typeTextElements[currentIndex]).height() / 2);
-
-            isAnimating = true;  // 애니메이션 시작 전에 플래그를 설정
-
-            $('html, body').stop().animate({
-                scrollTop: targetTop
-            }, 1000, function() {
-                // 애니메이션이 완료된 후 3초 동안 플래그를 true 상태로 유지
-                setTimeout(function() {
-                    isAnimating = false; // 3초 후에 플래그 재설정
-                }, 500);
-            });
-
-            event.preventDefault(); // 스크롤 동작 방지
+        } else { // 위로 스크롤
+            currentIndex--;
+            if (currentIndex < 0) {
+                currentIndex = 0;
+                return;
+            }
         }
+    
+        var targetTop = $(typeTextElements[currentIndex]).offset().top - ($(window).height() / 2) + ($(typeTextElements[currentIndex]).height() / 2);
+    
+        isAnimating = true;
+    
+        $('html, body').stop().animate({
+            scrollTop: targetTop
+        }, 500, function() {
+            setTimeout(function() {
+                isAnimating = false;
+            }, 500);
+        });
+    
+        event.preventDefault();
     }
+    
 
 
 

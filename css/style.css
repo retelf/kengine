@@ -11,7 +11,8 @@ html, h1, h2, h3, h4, h5, h6, form, fieldset, img {margin:0;padding:0;border:0}
 div, ul, li {list-style:none; padding:0; margin:0; border:0}
 a {text-decoration:none}
 section {margin:0 0 100px 0}
-#header {display:none;visibility: hidden;position: fixed;
+#header {    position: relative;
+    display:none;visibility: hidden;
     top: 0;
     left: 0;
     width: 100%;}
@@ -25,7 +26,7 @@ section {margin:0 0 100px 0}
 .clear {clear:both}
 
 /* 23.10.15. 이재황세무사: 스크롤 라인 추가로인하여 z인덱스 추가 */
-video {z-index: 300; position: relative;width: 100%; display:block; margin:0 auto 2vh auto; }
+video {z-index: 300; position: relative;width: 100%; display:block; margin:0 auto 0 auto; }
 
 /* 23.10.15. 이재황세무사 : 디자이너 요청으로 BODY색 BLACK으로 변경하였으므로, 헤더 및 푸터도 이에맞게 변경 18,18,18->(51,51,51)
    + 좌측 라인을 그렸기에, 포지션 릴레이티브와 z인덱스 수정
@@ -38,7 +39,7 @@ video {z-index: 300; position: relative;width: 100%; display:block; margin:0 aut
     background-color: rgba(0,0,0,0.2);box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px; color:#fff; height:75px}
 .header .logo {float:left; font-size:26px; margin:20px 0; width:20%}
 .header .nav {float:left; font-size:15px; padding:20px 0; width:80%}
-.header .nav ul {text-align: center; display:flex; justify-content: center;}
+.header .nav ul {font-size: 10px;text-align: center; display:flex; justify-content: center;}
 .header .nav ul li {float:left; margin:8px 50px 0 0}
 /* 23.10.11. 이재황 세무사 : box를 header클래스 에서 제외함으로 box_container으로 수정 및 관련 css 추가 */
 .box_container {padding: 0px !important; display: flex; justify-content: left; align-items: center; }
@@ -50,6 +51,10 @@ video {z-index: 300; position: relative;width: 100%; display:block; margin:0 aut
 
 .header.lightmode .nav{
     width:calc(80% - 270px)
+}
+
+.header.lightmode .nav ul{
+    font-size: 15px;
 }
 
 .header a {color:#fff}
@@ -149,7 +154,7 @@ video {z-index: 300; position: relative;width: 100%; display:block; margin:0 aut
     opacity: 1;
 }
 
-.changeBotton.lightmode {
+.engineBotton.lightmode {
     color: rgb(0,0,0);
     border: 1px solid rgb(0,0,0);
 }
@@ -160,10 +165,10 @@ video {z-index: 300; position: relative;width: 100%; display:block; margin:0 aut
 
 .main_lightmode.lightmode{
     display: flex;
+    flex-direction: column;
 }
 
 .scroll-bar.lightmode{
-    display: none;
 }
 
 #header.lightmode, #header.lightmode .logo a{
@@ -182,19 +187,26 @@ body {transition: background-color 0.5s, color 0.5s;}
 
 /* 23.0.15. 이재황세무사 : 화이트모드 배경색 흰색 변경 (디자이너 피드백 반영)*/
 body.lightmode {background-color: white; transition: background-color 0.5s, color 0.5s;}
-.header.lightmode {background-color: rgb(245, 245, 245) !important; transition: background-color 0.5s; }
+.header.lightmode {background-color: rgba(255,255,255,1);transition: background-color 0.5s; }
 .header.lightmode a {color:rgb(0,0,0); transition: color 0.5s, background-color 0.5s, transform 0.5s;}
 .page02_1 .box.lightmode a {color:rgbwhite; transition: color 0.5s;}
-.page02_1 .box.lightmode ul{transition: all 0.5s;    background-color: #f7faff !important}
+.page02_1 .box.lightmode ul{transition: all 0.5s;    }
 .page04_1 .box.lightmode li {color:black; transition: color 0.5s;}
-.page04_1 .box.lightmode ul{transition: all 0.5s;    background-color: #f7faff !important}
+.page04_1 .box.lightmode ul{height: 350px !important;transition: all 0.5s;    background-color: #f7faff !important}
+
+.page02_1.lightmode .box.lightmode ul{
+    background: radial-gradient(circle at center, rgba(0,0,0,0), transparent) !important;
+
+    background-color: #00000073  !important; 
+}
 
 .logo a{display: inline-block; font-weight: 700; transition:color 0.5s;  position: absolute;  left: 50px;}
 .logo a:hover{color:rgb(143, 136, 215);}
 .nav a{display: inline-block; font-weight: 700; transition:color 0.5s, transform 0.5s;}
 .nav a:hover{color:rgb(143, 136, 215); transform:scale(1.2);}
 
-.footer {transition:color 0.5s, background-color 0.5s;}
+.footer {    padding: 30px 0
+    ;transition:color 0.5s, background-color 0.5s;}
 .footer .container {transition:color 0.5s;}
 
 .footer.lightmode {background-color: rgb(245, 245, 245); transition:color 0.5s, backgorund-color 0.5s;}
@@ -204,6 +216,8 @@ body.lightmode {background-color: white; transition: background-color 0.5s, colo
 .pagesection.lightmode {color: black; transition: all 0.5s; }
 
 .main .title.lightmode::before { background: rgb(0, 0, 0); transition: all 0.5s; }
+.title.lightmode{color: black !important;}
+.mainTitle.lightmode{    border: 2px solid rgb(0 0 0) !important;color:black !important;}
 
 /* 23.10.15. 이재황세무사 : 디자이너 요청으로 하이라이트 백그라운드 제거, 색 제거, 강조만 표시*/
 
@@ -249,10 +263,25 @@ body.lightmode {background-color: white; transition: background-color 0.5s, colo
 .box_container a {color:#fff}
 .box_container .box:hover a {color:rgb(143, 136, 215);}
 
-.page01_1 {  box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px;}
-.page01_2 {  box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px;}
+.page01_1 {  }
+.page01_2 {  }
 .page01_2 img {width:100%; box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px;}
-.page01_2 .pdf_btn {box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 10px; cursor: pointer;;border: 3px solid rgb(99, 84, 187);transition: all 0.5s; background:#6354bb; color:#fff; border-radius:10px; height:40px; width:130px; margin:-10px 0 0 20px; line-height:40px; text-align:center; font-size:14px; font-weight:normal; padding:10px 20px}
+.page01_2 .pdf_btn {
+    display: block;
+    background: #6354bb;
+    border: 2px solid #6354bb;
+    color: #fff;
+    border-radius: 10px;
+    height: 25px;
+    width: 250px;
+    margin: 0 0 10px 0;
+    line-height: 25px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: normal;
+    padding: 10px 0;
+    font-weight: 600;
+    color: #ffffff;}
 .page01_2 .pdf_btn a {transition: all 0.5s; color:#fff}
 .page01_2 .pdf_btn:hover {background-color: rgb(51, 51, 51); border-color:rgb(143, 136, 215);}
 .page01_2 .pdf_btn:hover a {transition: all 0.5s; color:rgb(143, 136, 215);}
@@ -272,23 +301,63 @@ body.lightmode {background-color: white; transition: background-color 0.5s, colo
 
 .page03_1 {    pointer-events: none;
     font-size:18px}
-.page03_1 .date_btn {background:#6354bb; color:#fff; border-radius:10px; height:30px; width:130px; margin:0 20px 0 0; line-height:40px; text-align:center; font-size:14px; font-weight:normal; padding:10px 20px}
+.page03_1 .date_btn {    
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: #6354bb;
+        border: 2px solid #6354bb;
+        color: #fff;
+        border-radius: 4px;
+        height: 10px;
+        width: 94px;
+        margin: 0 25px 10px 0;
+        line-height: 25px;
+        text-align: center;
+        font-size: 16px;
+        font-weight: normal;
+        padding: 10px 0;
+        font-weight: 600;
+        color: #ffffff;
+    }
 .page03_2 .engin_btn {box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px; cursor: pointer;transition: all 0.5s;border: 1px #46bb94 solid;background:#46bb94; color:#fff; border-radius:30px; height:30px; width:250px; margin:0 auto; line-height:30px; text-align:center; font-size:16px; font-weight:normal; padding:10px 20px; font-weight:600}
-.page03_2 .engin_btn a {    pointer-events: none;
+.page03_2 .engin_btn a { 
     transition: all 0.5s;display:block; color:#fff}
 .page03_2 .engin_btn:hover {transition: all 0.5s; background-color: rgba(0,0,0,0);}
 .page03_2 .engin_btn:hover a {transition: all 0.5s; color: #46bb94;}
 
 
 .page04_1 {font-size:18px}
-.page04_1 .date_btn {background:#6354bb; color:#fff; border-radius:10px; height:30px; width:130px; margin:0 20px 0 0; line-height:40px; text-align:center; font-size:14px; font-weight:normal; padding:10px 20px}
+.page04_1 .date_btn {
+    display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: #6354bb;
+        border: 2px solid #6354bb;
+        color: #fff;
+        border-radius: 4px;
+        height: 10px;
+        width: 94px;
+        margin: 0 25px 10px 0;
+        line-height: 25px;
+        text-align: center;
+        font-size: 16px;
+        font-weight: normal;
+        padding: 10px 0;
+        font-weight: 600;
+        color: #ffffff;
+}
 /* 23.10.12. 이재황 세무사 : page04_1 box 및 span css 조정
    23.10.15. 이재황 세무사 : page04 내 이미지 박스 색 디자이너 의견으로 수정 (#ffffff1f)*/
-.page04_1 .box ul {box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px;transition: all 0.5s;float:left; background:#ffffff1f;border-radius:30px; width:24%; margin:50px 1% 0 0; height: 350px; color: white;}
-.page04_1 .box ul:last-child {margin:50px 0 0 0; width:25%}
+
+.page04_1 .box ul {box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px;transition: all 0.5s;float:left; background:#ffffff1f;border-radius:30px; width:24%; margin:50px 1% 0 0; height: 500px; color: white;}
+
+.page04_1 .box ul:last-child {}
 .page04_1 .box ul li {transition: all 0.5s;padding:30px 20px; text-align:center; font-size:16px}
 .page04_1 .tit {font-size:18px !important; font-weight:600; padding:0 20px !important}
-.page04_2 span {display:block; background:#6354bb; border:2px solid #6354bb; color:#fff; border-radius:10px; height:25px; width:120px; margin:0 0 10px 0; line-height:25px; text-align:center; font-size:16px; font-weight:normal; padding:10px 0; font-weight:600; color:#ffffff}
+.page04_2 span {display:block; background:#6354bb; border:2px solid #6354bb; color:#fff; border-radius:10px; height:25px; margin:0 0 10px 0; line-height:25px; text-align:center; font-size:16px; font-weight:normal; padding:10px 0; font-weight:600; color:#ffffff}
+.page04_2.lightmode span{}
+
 .page04_3 .btn_two {display:flex; justify-content: center; margin:50px 0 0 0}
 .page04_3 .btn_two li {float:left}
 .page04_3 .btn_two .btn {box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px; transition: all 0.5s;cursor: pointer;;border:1px #46bb94 solid;background:#46bb94; color:#fff; border-radius:30px; height:30px; width:250px; margin:0 20px; line-height:30px; text-align:center; font-size:16px; font-weight:normal; padding:10px 20px; font-weight:600}
@@ -328,125 +397,194 @@ body.lightmode {background-color: white; transition: background-color 0.5s, colo
     background-color: rgba(99, 84, 187, 0.05);  
 }
 
-@media (max-width:1200px){
-.container {max-width:100%; padding:0 10px}	
-.footer p {position:absolute; top:5px; right:10px; border:0 solid #fff; color:#fff; border-radius:30px; height:40px; width:150px; line-height:40px; text-align:right; padding:0; margin:0; font-size:16px}
-.page02_1 .box ul {height:400px}
-.nav ul{width: 70vw;}
-.changeBTN {    right: 1vw;
-    position: absolute;}
-}
-
-@media (max-width:768px){
-
-.box.scroll-to {
-    position: relative !important;
-    flex-direction: ce;
-    top: 221px;
-}
-
-.imageContainer:first-child {
-    left: -665px !important;
-}
-
-.imageContainer:last-child{
-    left: -1280px !important;
-}
-
-.pc {display:none}
-.m {display:block}		
-section {margin:0 0 50px 0}	
-
-.list-tb th, .list-tb table td {padding:10px 10px;border-top:1px solid #e6e6e6;border-left:1px solid #e6e6e6;text-align: center;line-height: 1.4;}
-
-.header {display:none; visibility: hidden;}	
-.container {max-width:100%; padding:0 10px}	
-.footer p {position:absolute; top:5px; right:10px; border:0 solid #fff; color:#fff; border-radius:30px; height:30px; width:120px; line-height:30px; text-align:right; padding:0; margin:0; font-size:14px}
-
-.page01_2 .pdf_btn {display:none}
-.page01_2 .pdf_btn_m { display:block; background:#6354bb; color:#fff; border-radius:10px; height:30px; width:100%; margin:-10px auto 30px auto; line-height:30px; text-align:center; font-size:12px; font-weight:normal; padding:10px 0}
-.page01_2 .pdf_btn_m a {color:#fff}
-
-.page01_2 .pdf_btn_m:hover {transition: all 0.5s; background-color: rgb(51, 51, 51); border-color:rgb(143, 136, 215);}
-.page01_2 .pdf_btn_m:hover a {transition: all 0.5s; color:rgb(143, 136, 215);}
-
-.page02_1 .box ul {height:400px}
-.page02_1 .box ul:first-child {margin-top: 100px;}
-.page02_1 .box ul {float:none; border-radius:30px; width:100%; margin:0; height:auto; margin:0 0 100px 0}
-.page02_1 .box ul li {padding:30px 40px; text-align:center; font-size:16px}
-.page02_1 .tit {font-size:18px !important; font-weight:600; padding:0 20px !important}
 
 
-.page03_1 {font-size:16px}
-.page03_1 .date_btn {background:#6354bb; color:#fff; border-radius:10px; height:30px; width:100px; margin:0 5px 0 0; line-height:40px; text-align:center; font-size:14px; font-weight:normal; padding:10px 10px}
-
-.page04_1 {font-size:16px}
-.page04_1 .date_btn {background:#6354bb; color:#fff; border-radius:10px; height:30px; width:100px; margin:0 5px 0 0; line-height:40px; text-align:center; font-size:14px; font-weight:normal; padding:10px 10px}
-.page04_1 .box {margin:50px 0 0 0}
-.page04_1 .box ul {float:left; background:#7d7d7d;border-radius:30px; width:49%; margin:1% 1% 0 0; height:350px}
-.page04_1 .box ul:last-child {margin:1% 1% 0 0; width:49%}
-.page04_1 .box ul li {padding:30px 20px; text-align:center; font-size:16px}
-.page04_1 .tit {font-size:18px !important; font-weight:600; padding:0 20px !important}
-.page04_3 .btn_two {display:flex; justify-content: center; margin:50px 0 0 0}
-.page04_3 .btn_two li {float:none}
-.page04_3 .btn_two .btn {background:#46bb94; color:#fff; border-radius:30px; height:30px; width:250px; margin:0 0 20px 0; line-height:30px; text-align:center; font-size:16px; font-weight:normal; padding:10px 20px; font-weight:600}
-
-
-#header {    z-index: 900009;
-    visibility: visible !important;
-    display: block;;}
-#header { color:#fff; height:50px}
-#header .logo {float:left; font-size:26px; margin:10px 0 0 5px; width:20%}
-#header .logo a {color:#fff}
-#header .box {margin:0 50px 0 0}
-#header .box a {float:right; background:#6354bb; color:#fff; border-radius:30px; height:30px; width:270px; margin:10px 0; line-height:30px; text-align:center}
-
-.lnb{position:fixed;right:-90%;top:0;z-index:90;width:90%;height:100%;background:#010e21;transition:.3s;overflow:auto}
-.lnb.on {right:0;transition:.3s}
-
-.lnb .close{text-align:right; height:50px}
-.lnb .close:after {display:inline-block;content: "\00d7"; font-size:40px; line-height:50px; margin:0 5px 0 0}
-
-.lnb li{border-top:1px solid #333}
-.lnb li > a{display:block;height:45px;line-height:45px;font-size:14px;color:#fff;padding-left:20px}
-.lnb li.on > a{color:red}
-.lnb li.on .sub{}
-.lnb .sub{display:none;background:#333}
-.lnb .sub{border-top:1px solid #444}
-.lnb .sub a{display:block;padding:8px 0;line-height:18px;font-size:12px;color:#ddd;padding-left:30px}
-.lnb .sub dd.on a{color:red}
-
-.lnb_open {margin-right: 10px; position:absolute;top:0;right:0}
-.lnb_open:after {display:inline-block;content: "\2630"; font-size:30px; margin:5px 5px 5px 0; line-height:40px}
-
-.body_cover.on{position:fixed;left:0;top:0;width:100%;height:100%;background:#000;opacity:0.6;z-index:80}
-
-.footer .container{
-    flex-direction: column;
-}
-
-.footer .textarea {
-    margin: 10px 0px;
-}
-
-.logo a{
-    left: 22px;
-}
-
-#cafeLink {
+.mobile_video{
     display: none;
 }
 
-.main .title::before {
-    width: 0;
-    height: 0;
-}
+@media (max-width:1200px){
+    .engineBTN{
+    }
+    
+    .changeBTN {
+        height: fit-content !important;
+        width: fit-content !important;
+        position: absolute;
+        right: 30px !important;
+    }
+    .engineBotton {
+    }
+    .video_Top.lightmode {
+        height: 50px !important;
+    }
+    .mobile_video {
+        display: block;
+    }
 
-.main .title {
-    padding:0;
-    text-align: center;
-    margin-bottom: 100px;
-}
+    .pc_video{
+        display: none;
+    }
+
+    .pc_vidieo
+
+    .engineBotton {
+        padding: 20px !important;       
+    }
+
+    .container.desktop{
+        display: none !important;
+    }
+
+    .container.mobile{
+        display: flex !important;
+    }
+
+    .pagesection {
+        padding: 50px 25px !important;
+    }
+
+    #gradientEffect{
+        flex-direction: column !important;
+    }
+
+    #gradientEffect div li{
+        width: fit-content !important;
+    }
+
+    .scroll-bar{margin-left: 5px !important;}
+    .box.scroll-to {
+        position: relative !important;
+        flex-direction: ce;
+        top: 221px;
+    }
+
+    .imageContainer:first-child {
+        left: -665px !important;
+    }
+
+    .imageContainer:last-child{
+        left: -1280px !important;
+    }
+
+    .pc {display:none}
+    .m {display:block}		
+    section {margin:0 0 50px 0}	
+
+    .list-tb th, .list-tb table td {padding:10px 10px;border-top:1px solid #e6e6e6;border-left:1px solid #e6e6e6;text-align: center;line-height: 1.4;}
+
+    .header {display:none; visibility: hidden;}	
+    .container {max-width:100%; padding:0 10px}	
+    .footer p {position:absolute; top:5px; right:10px; border:0 solid #fff; color:#fff; border-radius:30px; height:30px; width:120px; line-height:30px; text-align:right; padding:0; margin:0; font-size:14px}
+
+    .page01_2 .pdf_btn {display:none}
+    .page01_2 .pdf_btn_m { display:block; background:#6354bb; color:#fff; border-radius:10px; height:30px; width:100%; margin:-10px auto 30px auto; line-height:30px; text-align:center; font-size:12px; font-weight:normal; padding:10px 0}
+    .page01_2 .pdf_btn_m a {color:#fff}
+
+    .page01_2 .pdf_btn_m:hover {transition: all 0.5s; background-color: rgb(51, 51, 51); border-color:rgb(143, 136, 215);}
+    .page01_2 .pdf_btn_m:hover a {transition: all 0.5s; color:rgb(143, 136, 215);}
+
+    .page02_1 .box ul {height:400px}
+    .page02_1 .box ul:first-child {margin-top: 100px;}
+    .page02_1 .box ul {float:none; border-radius:30px; width:100%; margin:0; height:auto; margin:0 0 100px 0}
+    .page02_1 .box ul li {padding:30px 40px; text-align:center; font-size:16px}
+    .page02_1 .tit {font-size:18px !important; font-weight:600; padding:0 20px !important}
+
+
+    .page03_1 {font-size:16px}
+    .page03_1 .date_btn {background:#6354bb; color:#fff; border-radius:10px;  text-align:center; font-size:14px; font-weight:normal;   width: 100%; margin: 60px 0 10px 0;}
+
+    .page04_1 {font-size:16px}
+
+    .page04_1 .date_btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: #6354bb;
+        color: #fff;
+        border-radius: 10px;
+        height: 10px;
+        width: 100%;
+        line-height: 40px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: normal;
+        margin: 30px 0 10px 0;
+    }
+    .page04_1 .box {display: flex;    flex-direction: column;margin:50px 0 0 0;    align-items: center;
+    }
+    .page04_1 .box ul {float:left;border-radius:30px; width:90%;  height: fit-content;}
+    .page04_1 .box ul:last-child { width:90%}
+    .page04_1 .box ul li {padding:30px 20px; text-align:center; font-size:16px}
+    .page04_1 .tit {font-size:18px !important; font-weight:600; padding:0 20px !important}
+    .page04_3 .btn_two {display:flex; justify-content: center; margin:50px 0 0 0}
+    .page04_3 .btn_two li {float:none}
+    .page04_3 .btn_two .btn {background:#46bb94; color:#fff; border-radius:30px; height:30px; width:250px; margin:0 0 20px 0; line-height:30px; text-align:center; font-size:16px; font-weight:normal; padding:10px 20px; font-weight:600}
+
+    #header.lightmode {
+    background-color: rgba(255,255,255,0.8);
+    }
+    #header {    
+        box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px;
+        background-color: rgba(0,0,0,0.8);
+        position: fixed;
+        top:0px;
+        z-index: 900009;
+        visibility: visible !important;
+        display: block;;}
+    #header { color:#fff; height:50px}
+    #header .logo {float:left; font-size:26px; margin:10px 0 0 5px; width:20%}
+    #header .logo a {color:#fff}
+    #header .box {margin:0 50px 0 0}
+    #header .box a {float:right; background:#6354bb; color:#fff; border-radius:30px; height:30px; width:270px; margin:10px 0; line-height:30px; text-align:center}
+
+    .lnb{min-width: 300px;position:fixed;right:-90%;top:0;z-index:90;width:40%;height:100%;background:#010e21;transition:.3s;overflow:auto}
+    .lnb.on {right:0;transition:.3s}
+
+    .lnb .close{text-align:right; height:50px}
+    .lnb .close:after {display:inline-block;content: "\00d7"; font-size:40px; margin:0 5px 0 0}
+
+    .lnb.lightmode li{border-top:1px solid rgba(0,0,0,0.1)}
+    .lnb li{border-top:1px solid rgba(255,255,255,0.1)}
+    .lnb li > a{display:block;height:45px;line-height:45px;font-size:14px;color:#fff;padding-left:20px}
+    .lnb li.on > a{color:red}
+    .lnb li.on .sub{}
+    .lnb .sub{display:none;background:#333}
+    .lnb .sub{border-top:1px solid #444}
+    .lnb .sub a{display:block;padding:8px 0;line-height:18px;font-size:12px;color:#ddd;padding-left:30px}
+    .lnb .sub dd.on a{color:red}
+
+    .lnb_open {margin-right: 10px; position:absolute;top:0;right:0}
+    .lnb_open:after {display:inline-block;content: "\2630"; font-size:30px; margin:5px 5px 5px 0; line-height:40px}
+
+    .body_cover.on{position:fixed;left:0;top:0;width:100%;height:100%;background:#000;opacity:0.6;z-index:80}
+
+    .footer .container{
+        flex-direction: column;
+    }
+
+    .footer .textarea {
+        margin: 10px 0px;
+    }
+
+    .logo a{
+        left: 22px;
+    }
+
+    #cafeLink {
+        display: none;
+    }
+
+    .main .title::before {
+        width: 0;
+        height: 0;
+    }
+
+    .main .title {
+        padding:0;
+        text-align: center;
+        margin-bottom: 100px;
+    }
 
 
 }
@@ -502,7 +640,7 @@ section {margin:0 0 50px 0}
     width: 3px;
     height: 100%;
     border-radius: 0 5px 5px 0;
-    transition: opacity 0.5s;
+    transition: opacity 0.1s;
 
 }
 
@@ -512,7 +650,7 @@ section {margin:0 0 50px 0}
     left: 0;
     width: 100%;
     height: 100%;
-    transition: opacity 0.5s;
+    transition: opacity 0.1s;
 }
 
 .scroll-bar-bg {
@@ -522,8 +660,15 @@ section {margin:0 0 50px 0}
         rgba(15, 32, 43, 1) 53%, 
         rgba(15, 32, 43, 0.1));
     opacity: 1;
-    transition: opacity 0.5s;
+    transition: opacity 0.1s;
+}
 
+.scroll-bar-bg.lightmode {
+    background: linear-gradient( 
+        rgba(15, 32, 43, 0.1),
+        rgba(15, 32, 43, 0.1));
+    opacity: 1;
+    transition: opacity 0.1s;
 }
 
 .scroll-bar-highlight {
@@ -533,10 +678,23 @@ section {margin:0 0 50px 0}
         rgb(14 255 35) 40%, 
         rgb(14 255 35) 60%, 
         rgba(0, 0, 0, 0) 65%);
+    height: 40%;  /* 이 부분을 조절하여 움직일 수 있는 영역을 설정합니다 */
     opacity: 0;
-    transition: opacity 0.5s;
-
+    transition: top 0.1s;  /* opacity에서 top으로 속성을 변경합니다 */
 }
+
+.scroll-bar-highlight.lightmode {
+    background: linear-gradient( 
+        rgba(107, 107, 107, 0), 
+        rgba(107, 107, 107, 0) 35%, 
+        rgb(78, 14, 255) 40%, 
+        rgb(78, 14, 255) 60%, 
+        rgba(107, 107, 107, 0) 65%);
+    height: 40%;  /* 이 부분을 조절하여 움직일 수 있는 영역을 설정합니다 */
+    opacity: 0;
+    transition: top 0.1s;  /* opacity에서 top으로 속성을 변경합니다 */
+}
+
 
 .scroll-bar.scrolled .scroll-bar-highlight {
     opacity: 0.7;  
@@ -548,7 +706,7 @@ section {margin:0 0 50px 0}
     display: inline-block; /* 블록 요소 특성을 갖도록 함 */
     padding: 0px 10px; /* 안쪽 여백을 추가하여 텍스트와 테두리 사이에 간격을 만듦 */
     border: 2px solid rgb(31 127 181);
-    border-radius: 50px; /* 동그란 형태를 만들기 위한 border-radius 값 */
+    border-radius: 3px; /* 동그란 형태를 만들기 위한 border-radius 값 */
     font-size: 14px; /* 글자 크기 */
     text-align: center; /* 글자를 중앙에 배치 */
     font-weight: bold;
@@ -727,34 +885,39 @@ line-height: 40px;
     height: 210vh;
 }
 
-.changeBTN {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
-.changeBotton {
+
+.engineBotton {
+    top: 9px;
+    left: 20px;
     background-color: rgba(0, 0, 0, 0);
     color: white;
     border: 1px white solid;
-    padding: 6px;
+    padding: 7px;
     cursor: pointer;
     transition: all 0.5s;
-    right: 3vw;
     position: absolute;
+    width: fit-content;
+    text-align: center ;
 }
 
-.changeBotton:hover {
-    color: rgb(143, 136, 215);
+.engineBotton{
+}
+
+.engineBotton a{
+    color:white
+}
+
+
+.engineBotton:hover {
+    color: rgb(143, 136, 215) !important;
     border:1px rgb(143, 136, 215) solid;
     transition: all 0.5s;
-
 }
 
+
+
 .main_lightmode video{
-    max-height: 80vh;
-    margin-top: 10px;
 }
 
 .wrap {
@@ -770,6 +933,14 @@ line-height: 40px;
 
 .lightmode_Text.lightmode{
     display: block;
+}
+
+.page04_1 .lightmode_Text.lightmode{
+    display: inline-flex;
+}
+
+.page03_1 .lightmode_Text.lightmode{
+    display: inline-flex;
 }
 
 .heavymode_Text.lightmode{
@@ -794,4 +965,137 @@ line-height: 40px;
 
 .main_lightmode.lightmode {
     display: flex;
+}
+
+.footnote {
+    font-size: small;
+}
+
+.container.mobile{
+    display: none;
+}
+
+.footnote_line{
+    margin-bottom: 22px;
+    width: 35%;
+    border-bottom: #ffffff 1px solid;
+}
+
+.footnote_line.lightmode {
+    border-bottom: 1px black solid;
+}
+
+video.lightmode {
+    margin-top:3px;
+    max-height: 95%;
+
+}
+
+.video_Top {
+    width: 100%;
+    height: 75px;
+}
+
+.video_box{
+    display: flex;
+    align-items: center;
+    height: 80vh;
+}
+
+.active {
+    border-bottom: 1px solid;
+}
+
+.active.lightmode{
+    border-bottom: 1px solid black;
+}
+
+.osBTN {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.osButton a{
+    color: white;
+    transition: all 0.5s;
+
+}
+
+.osButton:hover a {
+    color: #6354bb;
+    transition: all 0.5s;
+}
+
+.osButton {
+    display: block;
+    background: #6354bb;
+    border: 2px solid white;
+    border-radius: 10px;
+    height: 25px;
+    width: 250px;
+    margin: 0 0 10px 0;
+    line-height: 25px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: normal;
+    padding: 10px 0;
+    font-weight: 600;
+    position: absolute;
+    bottom:-1vh;
+    z-index: 9999999999999;
+    transition: all 0.5s;
+
+}
+
+.osButton:hover{
+    background-color: white;
+    transition: all 0.5s;
+    border: 2px solid black;
+
+}
+
+.gotoOS {
+    float: right;
+    background: rgba(0,0,0,0);
+    border: 2px solid #6354bb;
+    color: #fff;
+    border-radius: 5px;
+    height: 30px;
+    width: fit-content;
+    margin: 20px 0;
+    /* line-height: 40px; */
+    text-align: center;
+    padding: 0px 13px;
+    position: relative;
+    right: 66px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+}
+.gotoOS:hover {
+    background-color: rgba(255,255,255,0);
+}
+
+.gotoOS:hover a{
+    color: #6354bb !important;
+
+}
+
+.changeImg {
+    width: 50px;
+
+}
+
+.changeBTN {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 5px;
+    cursor: pointer;
 }

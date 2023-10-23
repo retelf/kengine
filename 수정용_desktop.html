@@ -34,36 +34,13 @@
                     <td>
                         <table class="table" style="width: 100%;padding-top:20px">
                             <tr>
-                                <td style="width:30%;vertical-align:top">
+                                <td style="vertical-align:top">
                                     <table style="width: 250px;text-align:center;margin:auto;">
                                         <tr>
-                                            <td style="text-align:right;">
-                                                <div class="changeBotton" id="div_mode_outer" style="text-align:right; width: 69px; height: 35px; margin-right:5px; background: #EEEEEE; display: inline-table;border-radius: 50px">
-                                                    <div id="div_mode_inner" style="vertical-align:middle;width: 27px;height: 27px; background: #4867F8;display: inline-table; border-radius: 9999px"></div>
-                                                </div>                                               
-                                            </td>
-                                            <td style="text-align:left;margin:auto;">
-                                                <div id="div_mode_name" style="font-size: 18px; font-family: Pretendard; font-weight: 500; word-wrap: break-word">White Mode</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
                                             <td colspan="2" style="text-align:center">
-                                                <table id="svg_arrow" style="text-align:center; margin:auto">
-                                                    <tr>
-                                                        <td style="align-items : center; padding-bottom:5px">
-                                                            <div style="width: 100px; height: 21px; font-size: 18px; font-family: Pretendard; font-weight: 500; word-wrap: break-word">Language</div>                                                          
-                                                        </td>
-                                                        <td style="align-items : center; ">
-                                                            <div class="svg-container_language">
-                                                                <svg id="svg_language" class="svg_arrow" width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                    <g>
-                                                                        <path d="M11 6L6 1L1 6" stroke="#242425" stroke-linecap="round" stroke-linejoin="round"/>
-                                                                    </g>
-                                                                </svg>
-                                                            </div>                                                             
-                                                        </td>
-                                                    </tr>
-                                                </table>
+                                                <div id="div_english" class="div_language" style="width: 158px; height: 52px; background: #EEEEEE; align-items : center; display : none; margin:auto ;">
+                                                    <div id="div_english_inner" data-selected="unselected" style="width: 70px; text-align: center; margin:auto; color: #1E1E1E; font-size: 18px; font-family: Pretendard; font-weight: 500; word-wrap: break-word">English</div>
+                                                </div>
                                             </td>
                                         </tr>
                                         <tr>
@@ -73,13 +50,7 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td colspan="2" style="text-align:center">
-                                                <div id="div_english" class="div_language" style="width: 158px; height: 52px; background: #EEEEEE; align-items : center; display : none; margin:auto ;">
-                                                    <div id="div_english_inner" data-selected="unselected" style="width: 70px; text-align: center; margin:auto; color: #1E1E1E; font-size: 18px; font-family: Pretendard; font-weight: 500; word-wrap: break-word">English</div>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                        
                                     </table>
                                 </td>
                                 <td>
@@ -130,7 +101,7 @@
                                         </tr>
                                     </table>
                                 </td>
-                                <td style="width:30%; vertical-align:top" >                                    
+                                <td style="width:20%; vertical-align:top" >                                    
                                     <table style="width: 100%;">
                                         <tr>
                                             <td style="text-align:center;">
@@ -165,7 +136,7 @@
                                                         <td style="align-items : center; ">
                                                            <div style="width:100px; text-align: center; color: #363333; font-size: 14px; font-family: Inter; display:inline-block; font-weight: 700; word-wrap: break-word">
                                                             <div class="div_service_korean">출력량조정 </div>
-                                                            <div class="div_service_english" style="display: none;">Adjust the number of output characters</div>
+                                                            <div class="div_service_english" style="display: none;">Adjust output length</div>
 
                                                         </div>
                                                         </td>
@@ -189,11 +160,11 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="padding-top:30px;padding-bottom:30px">
+                    <td class="footer" style="padding-top:30px;padding-bottom:30px">
                         <table style="width: 50%;margin:auto;">
-                            <tr>
-                                <td style="width: 20%;text-align:center; color: #1E1E1E; font-size: 30px; font-family: Montserrat; font-weight: 600; word-wrap: break-word">KEngineOS</td>
-                                <td style="width: 80%;text-align:center">
+                            <tr class="footer_text">
+                                <td style="text-align:center;font-size: 30px; font-family: Montserrat; font-weight: 600; word-wrap: break-word">KEngineOS</td>
+                                <td style="margin-top: 25px;text-align:center">
                                     주식회사 KEngineOS | 경기도 광주시 수레안길 51-3 | retelf@naver.com
                                 </td>
                             </tr>

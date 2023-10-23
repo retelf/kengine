@@ -1,13 +1,33 @@
 ﻿body {
-    background-color: #616161;
+    background-color: #242425;
     color:white;
     line-height:160%;
     margin:0;
     padding:0;
+    transition: all 0.5s;
+}
+
+#td_answer {
+    height: 55vh !important;
+}
+
+#table_change_amount > tbody > tr > td:nth-child(2) > div {
+    width: fit-content !important;
+}
+
+.title{
+        color: #4867F8 !important;
+}
+
+
+
+tbody tr:last-child{
 }
 
 body.lightmode {
     background-color: white;
+    transition: all 0.5s;
+
 }
 
 body div {
@@ -15,14 +35,28 @@ body div {
 }
 
 body.lightmode div {
-    color:rgb(0, 0, 0) !important;
+    color:rgb(0, 0, 0) ;
+    transition: all 0.5s;
+
+}
+
+.footer {
+    background-color: #000;
+    transition: all 0.5s;
+
+}
+
+.footer.lightmode {
+    background-color: #eee;
+    transition: all 0.5s;
+
 }
 
 .div_service_korean, .title{
     pointer-events:none;
 }
 
-.div_output_letters_length{
+.div_output_letters_length, #div_output_letters_length{
     color: black !important;
 }
 
@@ -32,15 +66,21 @@ body.lightmode div {
 
 
 .table {
-    color: white;
 }
 
 .table td{
-    color: white;
 }
 
 #td_answer td{
-    color: #000;
+    color: white;
+    transition: all 0.5s;
+
+}
+
+#td_answer.lightmode td{
+    transition: all 0.5s;
+
+    color:black;
 }
 
 
@@ -82,4 +122,46 @@ a, span {
     max-width: 100%;
     max-height: 100%;
     cursor: pointer;
+}
+
+
+.div_language{
+    display: flex !important;
+}
+
+.tbody {
+    display: flex;
+}
+
+.menubar{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.footer_text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#a_mark, #q_mark div{
+    border-radius: 5px;
+}
+
+#div_korean, #div_english {
+    border:1px rgb(72, 103, 248,0) solid;
+
+}
+
+#div_korean:hover,  #div_english:hover  {
+    background-color: rgba(0,0,0,0) !important;
+    border:1px rgb(72, 103, 248) solid;
+    transition: all 0.5s;
+}
+
+#div_korean:hover div,  #div_english:hover div{
+    color:rgb(72, 103, 248) !important;
+    transition: all 0.5s;
+
 }
