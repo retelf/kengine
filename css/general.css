@@ -165,3 +165,11 @@ a, span {
     transition: all 0.5s;
 
 }
+
+#td_arrow {
+    display: none;
+}
+
+.language_box tbody{
+display:flex;
+}

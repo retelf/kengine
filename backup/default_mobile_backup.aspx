@@ -1,4 +1,5 @@
-﻿
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="default_mobile.aspx.vb" Inherits="WebApplication2.default_mobile" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -59,7 +60,7 @@
                                         <tr>
                                             <td colspan="2" style="text-align:center; ">
                                                 <div id="div_korean" class="div_language" style="width: 110px; height:25px; background: #4867F8; align-items : center; display : none; margin:auto ;">
-                                                    <div id="div_korean_inner" data-selected="selected" style="width: 60px; text-align: center; margin:auto ; color: white; font-size: 16px; font-family: Pretendard; font-weight: 500; word-wrap: break-word">한국어</div>
+                                                    <div id="div_korean_inner" data-selected="selected" style="width 60px; text-align: center; margin:auto ; color: white; font-size: 16px; font-family: Pretendard; font-weight: 500; word-wrap: break-word">한국어</div>
                                                 </div>
                                             </td>
                                         </tr>
@@ -154,8 +155,7 @@
                                             <td colspan="2" style="text-align:center;">
                                                 <table style="width: 100%;">
                                                     <tr>
-                                                        <td style="    Border-top-left-radius: 5px;
-                                                        border-bottom-left-radius: 5px;text-align:center;height: 58px; background: #EEEEEE;">
+                                                        <td style="text-align:center;height: 58px; background: #EEEEEE;">
                                                             <input id="txt_query" type="text" style="outline: none; font-size:18px; width: 95%; height: 58px; background: #EEEEEE; border: 0px; padding-left:10px; padding-right:10px; border-top-left-radius: 5px; border-bottom-left-radius: 5px"/>
                                                         </td>
                                                         <td id="td_new_chat" style="width: 50px; height: 58px; padding-left:0px; padding-right:20px; background: #EEEEEE; padding:0px; border-top-right-radius: 5px; border-bottom-right-radius: 5px">
@@ -196,3 +196,4 @@
         </div>
 </body>
 </html>
+

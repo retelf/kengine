@@ -79,16 +79,17 @@
                 '.engineBotton', '.page04_2', '.page04_1',
                 '.mainTitle', '.footnote_line', 'video',
                 '.scroll-bar-highlight', '.scroll-bar-bg',
-                '.video_Top','.active','.gotoOS'];
+                '.video_Top','.active','.gotoOS','.changeImg'];
     
             if (mode === 'lightmode') {
                 $('.header').css('background-color', 'rgba(255,255,255,1)');
-
+                $('.changeImg_lightmode').css('display','block')
                 $.each(elementsToToggle, function(index, selector) {
                     $(selector).addClass('lightmode');
                 });
             } else {
                 $('.header').css('background-color', 'rgba(0,0,0,0.3)');
+                $('.changeImg_lightmode').css('display','none')
 
                 $.each(elementsToToggle, function(index, selector) {
                     $(selector).removeClass('lightmode');

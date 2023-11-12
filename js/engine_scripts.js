@@ -5,11 +5,39 @@
     //lnb
     (function () {         
       
+        var $inputBTN =$('#td_new_chat')
+        var $td_arrow =$('#td_arrow')
+        var $txtQuery = $('#txt_query');
+        var $div_service_text_box = $('.div_service_text_box')
+
+        $inputBTN.on('click', function () {
+            $td_arrow.css('display','block');
+            $div_service_text_box.css('display','none')
+
+        });
+
+        $txtQuery.on('keydown', function(e) {
+            if (e.which === 13) {
+                $td_arrow.css('display', 'block');
+                $div_service_text_box.css('display','none')
+            }
+        });
+
+        $('#div_english, #div_korean, #div_difficulty').on('click', function() {
+            $td_arrow.css('display', 'none');
+        });
+        
+
+
         var $changeBTN =$('#div_difficulty')
-       
+        var heavymode = true
+
         applyMode(localStorage.getItem('mode'));
+
         $changeBTN.on('click', function() {
-            const currentMode = localStorage.getItem('mode') === 'lightmode' ? 'default' : 'lightmode';
+            heavymode = !heavymode; // heavymode 상태를 토글
+
+            const currentMode = heavymode ? 'default' : 'lightmode'; 
             localStorage.setItem('mode', currentMode);
             
             applyMode(currentMode);
@@ -18,7 +46,8 @@
         function applyMode(mode) {
             const elementsToToggle = [
                 'body', '.changeBotton','#td_answer',
-                '.footer'];
+                '.footer'
+            ];
     
             if (mode === 'lightmode') {
                 $.each(elementsToToggle, function(index, selector) {

@@ -7,7 +7,10 @@
         var number = query_data.number;
 
         var $table = c_exe_get_table.exe(number, keywords);
+        // 답변 데이터 중 3개 초과하는 부분은 삭제
+        $("#td_answer").children(":gt(1)").remove();
 
+        // 새로운 테이블 추가
         $("#td_answer").prepend($table)
 
         $.ajax({

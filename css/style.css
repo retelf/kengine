@@ -1099,3 +1099,7 @@ video.lightmode {
     right: 5px;
     cursor: pointer;
 }
+
+.changeImg.lightmode {
+    display: none;
+}

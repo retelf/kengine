@@ -10,11 +10,11 @@
         table += "<tr>";
         table += "<td id=\"q_mark\" style=\"width:5%;vertical-align:middle; \">";
         table += "</td>";
-        table += "<td id=\"q_content_" + number + "\" style=\"padding:20px; \">";
+        table += "<td id=\"q_content_" + number + "\" style=\"padding:10px; background-color:#4867f817; border-radius:5px\">";
         table += "</td>";
         table += "</tr>";
         table += "<tr>";
-        table += "<td id=\"a_mark\" style=\"vertical-align:top; background: #EEEEEE; padding-top: 20px; \">";
+        table += "<td id=\"a_mark\" style=\"vertical-align:top; background: #EEEEEE; padding: 20px 10px; \">";
         table += "</td>";
         table += "<td id=\"a_content_" + number + "\" style=\"padding:20px; border-radius:5px; background-color:#eeeeee26\">";
         table += "</td>";
